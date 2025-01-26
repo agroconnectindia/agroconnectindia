@@ -108,8 +108,8 @@ return (
 
 
 {/* popover */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isPopoverOpen ? 'block' : 'hidden'} z-50  `}>
-<button onClick={handleClose} className="absolute top-2 right-2 ">
+<div className={`absolute  md:h-[560px] md:w-[1100px] h-[200px] bg-white  shadow-2xl rounded-2xl p-4 ${isPopoverOpen ? 'block' : 'hidden'} z-50  `}>
+<button onClick={handleClose} className="absolute bg-black text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10 '>
@@ -121,8 +121,8 @@ return (
 
 
 {/* popover 2 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee} className="absolute top-2 right-2 ">
+<div className={`absolute  md:h-[560px] md:w-[1100px] h-[200px] bg-white  shadow-2xl rounded-2xl p-4 ${isOpen ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee} className="absolute bg-black text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10   '>
@@ -134,8 +134,8 @@ return (
 
 
 {/* popover 3 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen1 ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee1} className="absolute top-2 right-2 ">
+<div className={`absolute  md:h-[560px] md:w-[1100px] h-[200px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen1 ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee1} className="absolute bg-black text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10   '>
@@ -147,8 +147,8 @@ return (
 
 
 {/* popover 4 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen2 ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee2} className="absolute top-2 right-2 ">
+<div className={`absolute  md:h-[560px] md:w-[1100px] h-[200px] bg-white  shadow-2xl rounded-2xl p-4 ${isOpen2 ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee2} className="absolute bg-black text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10  '>
@@ -159,9 +159,9 @@ return (
 </div>
 
 {/* popover 4 for crop info */} 
-<div className={`absolute md:h-[550px] md:w-[1100px] h-[800px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
+<div className={`absolute md:h-[560px] md:w-[1100px] h-[200px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
             
-            <button onClick={handleClosee3} className="absolute top-2 right-2 bg-white font-extrabold ">
+            <button onClick={handleClosee3} className="absolute top-2 right-2 bg-black text-white font-extrabold ">
     X
   </button>
   <div className=' w-full z-50 mt-10  '>
@@ -173,7 +173,7 @@ return (
 </div>
 
 
-        <div onClick={handleDivvClick3}  className='min-h-[100px] sm:col-span-5 md:w-[400px] p-4  rounded-2xl backdrop-blur-2xl  shadow-2xl '>
+        <div onClick={handleDivvClick3}  className='min-h-[100px] sm:col-span-5 md:w-[400px] p-4 cursor-pointer  rounded-2xl backdrop-blur-2xl  shadow-2xl '>
         <div >
             <p className='text-2xl pt-2 flex  ml-3 font-bold italic'>Crop Information</p>
 

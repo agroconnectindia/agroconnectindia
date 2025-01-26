@@ -109,8 +109,8 @@ return (
 
 
 {/* popover */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isPopoverOpen ? 'block' : 'hidden'} z-50  `}>
-<button onClick={handleClose} className="absolute top-2 right-2 ">
+<div className={`absolute md:h-[530px] md:w-[1090px] h-[600px] w-[350px] bg-white shadow-2xl rounded-2xl p-4 ${isPopoverOpen ? 'block' : 'hidden'} z-50  `}>
+<button onClick={handleClose} className="absolute text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10 '>
@@ -120,10 +120,9 @@ return (
   </div>
 </div>
 
-
 {/* popover 2 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee} className="absolute top-2 right-2 ">
+<div className={`absolute md:h-[530px] md:w-[1090px] h-[600px] w-[350px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee} className="absolute  text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10   '>
@@ -135,8 +134,8 @@ return (
 
 
 {/* popover 3 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen1 ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee1} className="absolute top-2 right-2 ">
+<div className={`absolute md:h-[530px] md:w-[1090px] h-[600px] w-[350px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen1 ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee1} className="absolute  text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10   '>
@@ -148,8 +147,8 @@ return (
 
 
 {/* popover 4 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen2 ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee2} className="absolute top-2 right-2 ">
+<div className={`absolute md:h-[530px] md:w-[1090px] h-[600px] w-[350px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen2 ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee2} className="absolute  text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10  '>
@@ -160,8 +159,8 @@ return (
 </div>
 
 {/* popover 4 */}
-<div className={`absolute md:h-[600px] md:w-[1100px] h-[800px] w-[350px] backdrop-blur-lg shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee3} className="absolute top-2 right-2 ">
+<div className={`absolute md:h-[530px] md:w-[1090px] h-[600px] w-[350px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
+            <button onClick={handleClosee3} className="absolute  text-white top-2 right-2 ">
     X
   </button>
   <div className=' w-full z-50 mt-10  '>
@@ -172,7 +171,7 @@ return (
 </div>
 
 
-        <div onClick={handleDivvClick3} className='min-h-[100px] sm:col-span-4   rounded-2xl backdrop-blur-2xl  shadow-2xl '>
+        <div onClick={handleDivvClick3} className='min-h-[100px] sm:col-span-4 cursor-pointer   rounded-2xl backdrop-blur-2xl  shadow-2xl '>
         <div>
             <p className='text-2xl text-center  pt-2 font-bold italic'>Weather info</p>
             </div>
@@ -203,8 +202,8 @@ return (
         
     </div>
     {/* 3rd row */}
-    <div className='m-4 grid grid-cols-2 gap-4 sm:grid-cols-12 md:ml-36'>
-        <div onClick={handleDivvClick} className='min-h-[150px] w-auto rounded-2xl  shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-4 '>
+    <div className='m-4 grid grid-cols-2  gap-4 sm:grid-cols-12 md:ml-36'>
+        <div onClick={handleDivvClick} className='min-h-[150px] w-auto rounded-2xl cursor-pointer  shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-4 '>
         <div className='md:flex '>
             <div className=''>
             <p className='md:text-2xl font-bold italic flex  '>Egg Production</p>
@@ -226,12 +225,12 @@ return (
             </div>
         </div>
     
-        <div onClick={handleDivvClick1} className='min-h-[150px] w-auto rounded-2xl  shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-4 '>
+        <div onClick={handleDivvClick1} className='min-h-[150px] w-auto rounded-2xl cursor-pointer shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-4 '>
         <p className='text-2xl pt-2 font-bold italic'>Milk Production</p>
         </div>
         <div className='md:min-h-[150px] md:w-auto w-96 rounded-2xl shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-4 '>
         <div className='md:flex'>
-            <div onClick={handleDivvClick2} className=''>
+            <div onClick={handleDivvClick2} className='cursor-pointer'>
             <p className='md:text-xl font-bold italic flex '>Total Feed Intake</p>
             <p className='flex md:mx-6 my-4 font-bold text-3xl'>{TotalFeedIntake} Kg</p>
             </div>
