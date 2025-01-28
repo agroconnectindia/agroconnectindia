@@ -10,13 +10,14 @@ import News from './MyComponent/News'
 import Marketplace from './MyComponent/Marketplace'
 import { Route, Routes } from 'react-router-dom'
 import Recommendation from './MyComponent/Recommendation'
+import Offlinepage from './MyComponent/Offlinepage'
 
 
 
 export default function Home() {
   return (
     
-    <>
+    <Offlinepage>
     <Routes>
       <Route path='/' element={<Dashboard/>} />
       <Route path='/Recomendations' element={<Recommendation/>} />
@@ -41,6 +42,6 @@ export default function Home() {
     </div>
     </body> */}
 
-    </>
+    </Offlinepage>
   )
 }

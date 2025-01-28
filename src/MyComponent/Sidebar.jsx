@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+
+
+//icons
+import pfp from './icon/pfp.png'
 import dashboard from './icon/dashboard.png'
-import daily from './icon/Daily.png'
-import farm from './icon/farm.png'
+import newsicon from './icon/news.png'
 import stat from './icon/stat.png'
 import market from './icon/market.png'
-import img from './icon/b.png'
-import about from './icon/image1.png'
-import pfp from './icon/pfp.png'
+import recommendation from './icon/farm.png'
+import about from './icon/about.png'
+
 
 
 
 // small screen
-let name= 'User Name';
+let name= 'Saurav Zure';
 function Sidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -26,14 +30,14 @@ function Sidebar() {
 
   return (
     // <body className='mt-0'>
-      <div className='w-auto'>
+      <div className='w-auto z-auto'>
     
-    <div className="flex md:hidden mt-0">
+    <div className="flex md:hidden mt-0 z-40">
       <div className={`fixed  md:hidden top-0 left-0 z-50 flex items-center justify-center w-16 h-16 text-white cursor-pointer ${isSidebarOpen ? 'hidden' : ''}`} onClick={toggleSidebar}>
         {isSidebarOpen ? <FaTimes color="black" size="30px" /> : <FaBars color="black" size="30px"  />}
       </div>
 
-      <div className={`fixed top-0 left-0 h-full w-64 flex md:hidden bg-gray-200 shadow-md transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <div className={`fixed top-0 left-0 h-full w-64 flex md:hidden z-50 bg-gray-200 shadow-md transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex  md:hidden flex-col h-full">
           <div className="flex  md:hidden items-center justify-center h-20">
             {/* Close button */}
@@ -41,28 +45,30 @@ function Sidebar() {
               <FaTimes color="black" size="30px" />
             </button>
           </div>
-          <div>
-          <div className=" items-center justify-center h-20 mb-10   flex-co l">
+          <div className=" items-center justify-center h-20 flex-col">
         
-      <img className='  h-20 ml-[33%]  my-4 mx-2 bg-black rounded-[50%] mb-5 ' src={pfp} alt="Dashboard" />
-      <h1 className='font-bold text-2xl mt-4 md:block   '> {name} </h1>
+      <img className='  h-20   ml-20 my-4  bg-black rounded-[50%] mb-5' src={pfp} alt="Dashboard" />
+      <h1 className='font-bold text-3xl mt-4 ml-8  text-center'> {name} </h1>
         </div>
-        <div className=''>
-          <ul className='mt-20'>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center"> <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={dashboard} alt="Dashboard" /><a className='text-black  hover:text-slate-600' href='#'>Dashboard</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center">  <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={daily} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Recommendation</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center">  <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={daily} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Latest News</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center">  <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={daily} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Daily Record</a></div></li>
+        
+        <nav className="flex flex-col flex-grow overflow-y-auto mt-32"> 
+           
+          <div className='text-center'>
+           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={dashboard} alt="" /><Link to={'/'}><div className='text-bold font-bold  text-black text-xl mb-2  '>Dashboard</div></Link></div>
+           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={recommendation} alt="" /><Link to={'/recomendations'}><div className='text-bold font-bold  text-black text-xl mb-2  '>Recomendations</div></Link></div>
+           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={newsicon} alt="" /><Link to={'/News'} ><div className='text-bold font-bold  text-black text-xl  mb-2 '>LatestNews</div></Link></div>
+           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={stat} alt="" /><Link to={'/Report'} ><div className='text-bold font-bold  text-black text-xl mb-2  '>Report</div></Link></div>
+           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={market} alt="" /><Link to={'/Marketplace'} ><div className='text-bold font-bold  text-black text-xl mb-2  '>Marketplace</div></Link> </div>
+           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={about} alt="" /><Link to={'/About'} ><div className='text-bold font-bold  text-black text-xl '>About</div></Link> </div>
             
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center"> <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={farm} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Farm Record</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center"> <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={stat} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Statistics Report</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center">  <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={market} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Marketplace</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center"><div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={img} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>Business Hub</a></div></li>
-            <li className="py-2 m-2  text-black font-extrabold hover:text-slate-600  hover:bg-gray-400 text-center"> <div className='flex text-center ml-12'> <img className='h-8 mr-2 ' src={about} alt="Dashboard" /><a className='text-black hover:text-slate-600' href='#'>About</a></div></li>
-          
-          </ul>
+            
+
+
+
+            
           </div>
-        </div>
+          
+          </nav>
       </div>
       </div>
 

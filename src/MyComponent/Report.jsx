@@ -10,11 +10,11 @@ function Report() {
   return (
     <DashboardWrapper>
     {/* 1st row */}
-    <div className=' md:w-[1250px] md:absolute top-0 md:left-[200px]  overflow-y-auto mt-7 '>
+    <div className=' md:w-[1250px]  md:absolute top-0 md:left-[200px]  overflow-y-auto mt-7 '>
         <Header pagename='Farm Records'/>
     <div className='m-4 grid grid-cols-2 md:grid-col-2 gap-4 sm:grid-cols-12 md:ml-36   '>
         <div className='min-h-[100px] sm:col-span-2   rounded-2xl backdrop-blur-2xl   shadow-2xl hidden md:block  '> <img className='h-36 m-2' src={logo} alt="" /> </div>
-    <div  className='min-h-[100px] col-span-10   rounded-2xl backdrop-blur-2xl  shadow-2xl cursor-pointer    '>
+    <div  className='min-h-[100px] col-span-10 mr-5  rounded-2xl backdrop-blur-2xl  shadow-2xl cursor-pointer    '>
             <div className='p-2' >
             <p className='md:text-xl text-sm pt-2 font-bold italic'>Yearly Income Overview</p>
             </div>
@@ -35,7 +35,7 @@ function Report() {
 
     <div className=' row2  md:w-[600px] md:h-auto mr-4'>
     <div className=' md:  h-auto ' >
-            <p className='md:text-xl text-sm ml-3  font-bold italic'>Yearly Income Overview</p>
+            <p className='md:text-xl text-sm ml-3  font-bold italic'>Yearly Income Overview1</p>
             </div>
             
     <div className='m-2 grid grid-cols-2 md:grid-col-2 gap-4 sm:grid-cols-12 md:ml-   '>

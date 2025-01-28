@@ -4,7 +4,11 @@ import DashboardWrapper from './DashboardWrapper'
 function Marketplace() {
   return (
     <DashboardWrapper>
-    <div className='text-center'>Marketplace</div>
+    <div className='flex flex-col items-center justify-center min-h-screen'> 
+    <div className='text-center'> 
+        <p>Marketplace</p> 
+    </div>
+</div>
     </DashboardWrapper>
   )
 }
