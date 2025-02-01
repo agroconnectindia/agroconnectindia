@@ -24,8 +24,8 @@ export default function Side() {
       <div className=" md:w-64 h-screen fixed top-0 left-0 flex flex-col text-black  bg-gray-200 shadow-2xl">
         
        <div className=" items-center justify-center h-20 flex-col mt-14">
-        
-      <img className='  md:h-20 h-10  md:ml-20 my-4  bg-black rounded-[50%] mb-5' src={pfp} alt="Dashboard" />
+       <Link to={'/Profile'} ><img className='  md:h-20 h-10  md:ml-20 my-4  bg-black rounded-[50%] mb-5' src={pfp} alt="Dashboard" /></Link>
+      
       <h1 className='font-bold text-3xl mt-4   text-center'> {name} </h1>
         </div>
         
@@ -38,7 +38,7 @@ export default function Side() {
            <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={stat} alt="" /><Link to={'/Report'} ><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600   '>Report</div></Link></div>
            <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={market} alt="" /><Link to={'/Marketplace'} ><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600   '>Marketplace</div></Link> </div>
            <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={about} alt="" /><Link to={'/About'} ><div className='text-bold font-bold  text-black text-xl hover:text-gray-600 '>About</div></Link> </div>
-            
+                        
             
 
 

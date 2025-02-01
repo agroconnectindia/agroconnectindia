@@ -1,5 +1,5 @@
 // import React from 'react'
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 
 
 import logo from './icon/logot.png'
@@ -18,6 +18,11 @@ export default function Dashboard() {
     let TotalFeedIntake = 1260 ;
     let CostPerEgg = 23;
     let GramsPerEgg = 50;
+
+
+    
+
+    
     
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -174,7 +179,8 @@ return (
 
         <div onClick={handleDivvClick3} className='min-h-[100px] sm:col-span-4 cursor-pointer   rounded-2xl backdrop-blur-2xl  shadow-2xl '>
         <div>
-            <p className='text-2xl text-center  pt-2 font-bold italic'>Weather info</p>
+            <h1 className='text-2xl text-center  pt-2 font-bold italic'>Weather info</h1>
+            <p className='text-center md:mt-10 text-3xl font-bold'></p>
             </div>
         </div>
     </div>
