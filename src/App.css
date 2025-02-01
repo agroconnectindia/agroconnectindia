@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: ios;
+    src: url('/src/MyComponent/Fonts/sf-semibold.woff2');
+}
+
+@font-face {
+    font-family: iosregular;
+    src: url('/src/MyComponent/Fonts/sf-regular.woff2');
+}
+
+h1{
+    font-family: 'ios';
+}
+
+p{
+    font-family: 'iosregular';
+}

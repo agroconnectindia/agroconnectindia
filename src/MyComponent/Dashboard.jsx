@@ -1,5 +1,5 @@
 // import React from 'react'
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 
 
 import logo from './icon/logot.png'
@@ -19,6 +19,11 @@ export default function Dashboard() {
     let CostPerEgg = 23;
     let GramsPerEgg = 50;
     let Weather = 44;
+    
+
+
+    
+
     
     
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);

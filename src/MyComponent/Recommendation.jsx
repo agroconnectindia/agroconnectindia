@@ -92,7 +92,7 @@ return (
             <div className='p-2 ' >
             <p className='md:text-2xl flex ml-4  text-sm pt-2 font-bold italic'>Soil Information</p>
             <p className='flex mx-16 mt-4 font-bold text-3xl'>{soilinfo} %</p>
-            <div className='ml-4 mt-3 font-semibold text-2xl italic '>Good For            </div>
+            <div className='ml-4 mt-3 font-semibold text-\\2xl italic '>Good For            </div>
             </div>
             <div className='main py-6 '>
               {/* <div className='h-28 w-28  rounded-2xl ' ><img src={soil} alt="" /></div> */}
