@@ -18,6 +18,8 @@ export default function Dashboard() {
     let TotalFeedIntake = 1260 ;
     let CostPerEgg = 23;
     let GramsPerEgg = 50;
+    let Weather = 44;
+    
 
 
     
