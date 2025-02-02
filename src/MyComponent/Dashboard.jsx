@@ -1,6 +1,6 @@
 // import React from 'react'
 import React, { useEffect,useState } from 'react';
-
+import data from './Variable'; 
 
 import logo from './icon/logot.png'
 import DashboardWrapper from './DashboardWrapper';
@@ -170,9 +170,41 @@ return (
     X
   </button>
   <div className=' w-full z-50 mt-10  '>
-    <p className='text-black font-bold'>
-     s laborum nemo incidunt excepturi modi ipsam voluptates aut voluptatem illo cupiditate. Labore recusandae facilis veritatis consectetur expedita. Ab veniam dolorum iure placeat rem, dolor fugiat eos laudantium tempora fugit.
-    </p>
+    {/* add code */}
+    <div className=" bg-transparent  w-full mx-auto  md:px-56 border">
+      <div className="flex justify-between items-center">
+        <div className="flex items-center">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png"
+            alt="Weather Icon"
+            className="w-16 h-16"
+          />
+          <span className="text-2xl font-bold ml-3">27°C</span>
+        </div>
+        <h2 className="text-2xl font-bold">Pune</h2>
+      </div>
+      <hr className='mt-5  bg-black h-0.5 ' />
+      <div className="mt-5 text-xl ">
+        <p className="flex justify-between font-semibold">
+          <span>Humidity</span> <span>75%</span>
+        </p>
+        <p className="flex justify-between font-semibold">
+          <span>Chance of Rain</span> <span>75%</span>
+        </p>
+        <p className="flex justify-between font-semibold">
+          <span>Wind</span> <span>0 mph</span>
+        </p>
+        <p className="flex justify-between font-semibold">
+          <span>Feels like</span> <span>65°</span>
+        </p>
+      </div>
+      <div className="bg-gray-900 p-6 rounded-xl shadow-lg w-full max-w-xl mx-auto">
+      <h2 className="text-white text-lg mb-4">Temperature Trend</h2>
+      {/* <div className="h-64">
+        <Line data={data} options={options} />
+      </div> */}
+    </div>
+    </div>
   </div>
 </div>
 
@@ -180,7 +212,7 @@ return (
         <div onClick={handleDivvClick3} className='min-h-[100px] sm:col-span-4 cursor-pointer   rounded-2xl backdrop-blur-2xl  shadow-2xl '>
         <div>
             <h1 className='text-2xl text-center  pt-2 font-bold italic'>Weather info</h1>
-            <p className='text-center md:mt-10 text-3xl font-bold'></p>
+            <p className='text-center md:mt-10 text-3xl font-bold'>{data.Weather}</p>
             </div>
         </div>
     </div>

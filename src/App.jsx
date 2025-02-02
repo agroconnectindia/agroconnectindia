@@ -30,7 +30,8 @@ export default function Home() {
     
     <Offlinepage>
       {loading ? (
-                <div className="flex justify-center items-center h-screen w-screen ml-10 md:ml-20 bg-white">
+                <div className="
+                 flex justify-center items-center h-screen w-screen ml-10 md:ml-20 bg-white">
                     <svg width="600" height="100" xmlns="http://www.w3.org/2000/svg">
                         <style>
                             {`

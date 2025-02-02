@@ -46,8 +46,10 @@ function Sidebar() {
             </button>
           </div>
           <div className=" items-center justify-center h-20 flex-col">
-        
-      <img className='  h-20   ml-20 my-4  bg-black rounded-[50%] mb-5' src={pfp} alt="Dashboard" />
+
+<Link to={'/Profile'} ><img className='  h-20   ml-20 my-4  bg-black rounded-[50%] mb-5 ' src={pfp} alt="Dashboard" /></Link>
+      
+      {/* <img className='  h-20   ml-20 my-4  bg-black rounded-[50%] mb-5' src={pfp} alt="Dashboard" /> */}
       <h1 className='font-bold text-3xl mt-4 ml-8  text-center'> {name} </h1>
         </div>
         
