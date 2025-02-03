@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './icon/report.png'
 import DashboardWrapper from './DashboardWrapper'
 import Header from './Header'
+import logo from './icon/logot.png'
 import Footer from './Footer'
 
 function Report() {
