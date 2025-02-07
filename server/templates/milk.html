@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Record</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center py-10">
+    <h1 class="text-3xl font-bold text-blue-600 mb-5">Milk Record Entry</h1>
+
+    <!-- Form -->
+    <form method="POST" class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <label class="block text-gray-700 font-semibold mb-1">Date:</label>
+        <input type="date" name="date" required 
+            class="w-full p-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        
+        <label class="block text-gray-700 font-semibold mb-1">Quantity (Liters):</label>
+        <input type="number" name="quantity" step="0.1" required 
+            class="w-full p-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        
+        <label class="block text-gray-700 font-semibold mb-1">Rate (₹ per Liter):</label>
+        <input type="number" name="rate" step="0.1" required 
+            class="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">
+            Submit
+        </button>
+    </form>
+
+    <!-- Table -->
+    <h2 class="text-2xl font-semibold text-gray-700 mt-10 mb-4">Milk Records</h2>
+    <div class="overflow-x-auto w-full max-w-4xl">
+        <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+            <thead>
+                <tr class="bg-blue-500 text-white">
+                    <th class="py-3 px-4 text-left">Date</th>
+                    <th class="py-3 px-4 text-left">Quantity (L)</th>
+                    <th class="py-3 px-4 text-left">Rate (₹)</th>
+                    <th class="py-3 px-4 text-left">Amount (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in records %}
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="py-2 px-4">{{ row['Date'] }}</td>
+                    <td class="py-2 px-4">{{ row['Quantity'] }}</td>
+                    <td class="py-2 px-4">{{ row['Rate'] }}</td>
+                    <td class="py-2 px-4">{{ row['Amount'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
