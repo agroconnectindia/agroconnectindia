@@ -23,7 +23,7 @@ export default function Home() {
       useEffect(() => {
           setTimeout(() => {
               setLoading(false);
-          }, 3000); // Simulating a 2-second loading time
+          }, 0); // Simulating a 2-second loading time
       }, []);
   return (
     
