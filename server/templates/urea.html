@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urea Reamaining Day</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?farm,agriculture') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background: #4CAF50; /* Green color for farm theme */
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+        .btn-primary {
+            background-color: #4CAF50;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h2>Urea Application Tracker</h2>
+                        <p>Track your urea application periods.</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/">
+                            <div class="form-group">
+                                <label for="application_date">Application Date</label>
+                                <input type="date" class="form-control" id="application_date" name="application_date" required>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </form>
+
+                        <hr>
+
+                        <h3 class="text-center">Urea Application Records</h3>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Application Date</th>
+                                    <th>Remaining Days</th>
+                                    <th>Remaining Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for interval in intervals %}
+                                <tr>
+                                    <td>{{ interval[0] }}</td>
+                                    <td>{{ interval[1] }}</td>
+                                    <td>{{ interval[2] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

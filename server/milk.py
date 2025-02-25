@@ -1,40 +1,43 @@
 from flask import Flask, render_template, request, redirect
-import sqlite3
+from database import get_db_connection
 
-# app = Flask(__name__)
-# DATABASE = 'agroconnect.db'
+app = Flask(__name__)
 
-# def get_db_connection():
-#     conn = sqlite3.connect(DATABASE)
-#     conn.row_factory = sqlite3.Row
-#     return conn
-
-# @app.route('/', methods=['GET', 'POST'])
+@app.route('/milk', methods=['GET', 'POST'])
 def milkshow():
-    DATABASE = 'agroconnect.db'
-    conn = sqlite3.connect(DATABASE)
-    conn.row_factory = sqlite3.Row
+    conn = get_db_connection()
+    if not conn:
+        return "Error: Could not connect to the database."
+
     if request.method == 'POST':
         date = request.form['date']
         quantity = float(request.form['quantity'])
         rate = float(request.form['rate'])
-        amount = quantity * rate  # Calculate amount
+        amount = quantity * rate
 
-        # conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO Milkdata (Date, Quantity, Rate, Amount) VALUES (?, ?, ?, ?)",
-                       (date, quantity, rate, amount))
-        conn.commit()
+        try:
+            cursor = conn.cursor()
+            cursor.execute("INSERT INTO milkdata (Date, Quantity, Rate, Amount) VALUES (%s, %s, %s, %s)",
+                           (date, quantity, rate, amount))
+            conn.commit()
+            return redirect('/milk')
+        except Exception as e:
+            return f"Error: {e}"
+        finally:
+            cursor.close()
+            conn.close()
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM milkdata ORDER BY Date DESC")
+        records = cursor.fetchall()
+    except Exception as e:
+        return f"Error: {e}"
+    finally:
+        cursor.close()
         conn.close()
-
-        return redirect('/milk')  # Redirect to home page after submission
-
-    # Fetch existing records
-    # conn = get_db_connection()
-    records = conn.execute("SELECT * FROM Milkdata ORDER BY Date DESC").fetchall()
-    conn.close()
 
     return render_template('milk.html', records=records)
 
-# if __name__ == '__main__':
-    # app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

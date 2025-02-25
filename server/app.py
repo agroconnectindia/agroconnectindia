@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 # from registrationdata import showregdata
-from registrationtest.zzregister import zregister
+# from registrationtest.zzregister import zregister
 from milk import milkshow
 from poultryfarm import poultryshow
 import sqlite3  
@@ -24,9 +24,9 @@ def poultry():
     return poultryshow()
 
 
-@app.route('/zzregister')
-def zzreturn():
-    return render_template("login.html")
+# @app.route('/zzregister')
+# def zzreturn():
+#     return render_template("login.html")
 
 @app.route('/zzregistersuccess', methods=['POST'])
 def register():
