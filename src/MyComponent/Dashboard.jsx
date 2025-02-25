@@ -1,7 +1,6 @@
 // import React from 'react'
 import React, { useEffect,useState } from 'react';
 import data from './Variable'; 
-
 import logo from './icon/logot.png'
 import cow from './icon/cow.png'
 import egg from './icon/egg.png'
@@ -53,6 +52,8 @@ export default function Dashboard() {
     const [isOpen1, setIsOpen1] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
     const [isOpen3, setIsOpen3] = useState(false);
+
+
 
 
   const handleDivClick = () => {

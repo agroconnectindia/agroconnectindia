@@ -6,6 +6,7 @@ import About from './MyComponent/About'
 import Dashboard from './MyComponent/Dashboard'
 import News from './MyComponent/News'
 import Marketplace from './MyComponent/Marketplace'
+import Search from './MyComponent/Search';
 import { Route, Routes } from 'react-router-dom'
 import Recommendation from './MyComponent/Recommendation'
 import Offlinepage from './MyComponent/Offlinepage'
@@ -63,8 +64,8 @@ export default function Home() {
       <Route path='/Report' element={<Report/>} />
       <Route path='/Marketplace' element={<Marketplace/>} />
       <Route path='/About' element={<About/>} />
-      <Route path='/Profile' element={<Profile/>} />
-      
+      <Route path='/Profile' element={<Profile/>} /> 
+      <Route path='/Search' element={<Search/>} />
     </Routes>
           
             )}

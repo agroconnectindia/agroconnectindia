@@ -5,6 +5,9 @@ import Header from './Header'
 import Footer from './Footer'
 import img from './icon/logo.png'
 import agroLogo from './icon/logot.png'
+import pro1 from './icon/pro1.png'
+import pro2 from './icon/pro2.png'
+import pro3 from './icon/pro2.png'
 
 function Marketplace() {
 
@@ -32,7 +35,7 @@ function Marketplace() {
       {/* <div className="hidden md:block w-1/4 bg-gray-100 h-screen"></div> */}
       
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center p-6 w-full md:w-3/4 mt-[160px] md:mt-20  md:ml-[200px]">
+      <div className="flex flex-col items-center justify-center p-6 w-full md:w-3/4 mt-[160px] md:mt-10  md:ml-[200px]">
         <h1 className="text-2xl md:text-3xl font-bold text-center">
           All in 1 Solution to Seeds And Fertilizers
         </h1>
@@ -113,26 +116,30 @@ function Marketplace() {
         )}
         
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl">
-  <button onClick={(e) => handleClick(e, 'https://example.com/seeds')}>
-    <div className='flex flex-col'>
-      <div className="bg-gray-200 rounded-lg w-full h-52 flex items-center justify-center"></div>
+  <button className='bg-transparent' onClick={(e) => handleClick(e, 'https://example.com/seeds')}>
+    <div className='flex flex-col bg-white'>
+      <img className='p-5 h-64' src={pro1} alt="" />
       <p className='text-center font-bold mt-2 text-black'>Seeds</p>
     </div>
   </button>
 
-  <button onClick={(e) => handleClick(e, 'https://example.com/fertilizer')}>
-    <div className='flex flex-col'>
-      <div className="bg-gray-200 rounded-lg w-full h-52 flex items-center justify-center"></div>
+  <button className='bg-transparent' onClick={(e) => handleClick(e, 'https://example.com/seeds')}>
+    <div className='flex flex-col bg-white'>
+      <img className='p-5 h-64' src={pro2} alt="" />
       <p className='text-center font-bold mt-2 text-black'>Fertilizer</p>
     </div>
   </button>
 
-  <button onClick={(e) => handleClick(e, 'https://example.com/urea')}>
-    <div className='flex flex-col'>
-      <div className="bg-gray-200 rounded-lg w-full h-52 flex items-center justify-center"></div>
+  <button className='bg-transparent' onClick={(e) => handleClick(e, 'https://example.com/seeds')}>
+    <div className='flex flex-col bg-white'>
+      <img className='p-5 h-64' src={pro3} alt="" />
       <p className='text-center font-bold mt-2 text-black'>Urea</p>
     </div>
   </button>
+
+
+
+ 
 </div>
 
 <button
