@@ -73,11 +73,58 @@ function RegistrationForm() {
                     required
                   >
                     <option value="">Select City</option>
+                    
                     <option value="Mumbai">Mumbai</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Bangalore">Bangalore</option>
-                    <option value="Hyderabad">Hyderabad</option>
-                    <option value="Ahmedabad">Ahmedabad</option>
+    <option value="Pune">Pune</option>
+    <option value="Nagpur">Nagpur</option>
+    <option value="Nashik">Nashik</option>
+    <option value="Aurangabad">Aurangabad</option>
+    <option value="Thane">Thane</option>
+    <option value="Solapur">Solapur</option>
+    <option value="Amravati">Amravati</option>
+    <option value="Kolhapur">Kolhapur</option>
+    <option value="Sangli">Sangli</option>
+    <option value="Akola">Akola</option>
+    <option value="Jalgaon">Jalgaon</option>
+    <option value="Latur">Latur</option>
+    <option value="Dhule">Dhule</option>
+    <option value="Ahmednagar">Ahmednagar</option>
+    <option value="Chandrapur">Chandrapur</option>
+    <option value="Nanded">Nanded</option>
+    <option value="Bhiwandi">Bhiwandi</option>
+    <option value="Malegaon">Malegaon</option>
+    <option value="Parbhani">Parbhani</option>
+    <option value="Beed">Beed</option>
+    <option value="Ratnagiri">Ratnagiri</option>
+    <option value="Satara">Satara</option>
+    <option value="Wardha">Wardha</option>
+    <option value="Yavatmal">Yavatmal</option>
+    <option value="Baramati">Baramati</option>
+    <option value="Osmanabad">Osmanabad</option>
+    <option value="Gondia">Gondia</option>
+    <option value="Jalna">Jalna</option>
+    <option value="Hingoli">Hingoli</option>
+    <option value="Karad">Karad</option>
+    <option value="Kalyan-Dombivli">Kalyan-Dombivli</option>
+    <option value="Ulhasnagar">Ulhasnagar</option>
+    <option value="Vasai-Virar">Vasai-Virar</option>
+    <option value="Ichalkaranji">Ichalkaranji</option>
+    <option value="Navi Mumbai">Navi Mumbai</option>
+    <option value="Mira-Bhayandar">Mira-Bhayandar</option>
+    <option value="Panvel">Panvel</option>
+    <option value="Chandwad">Chandwad</option>
+    <option value="Malkapur">Malkapur</option>
+    <option value="Bhandara">Bhandara</option>
+    <option value="Sindhudurg">Sindhudurg</option>
+    <option value="Washim">Washim</option>
+    <option value="Hinganghat">Hinganghat</option>
+    <option value="Pandharpur">Pandharpur</option>
+    <option value="Palghar">Palghar</option>
+    <option value="Wardha">Wardha</option>
+    <option value="Alibag">Alibag</option>
+    <option value="Mahad">Mahad</option>
+    <option value="Chiplun">Chiplun</option>
+                    
                   </select>
                 </label>
                 <label className="block">State
@@ -87,24 +134,29 @@ function RegistrationForm() {
                   >
                     <option value="">Select State</option>
                     <option value="Maharashtra">Maharashtra</option>
-                    <option value="Delhi">Delhi</option>
+                    {/* <option value="Delhi">Delhi</option>
                     <option value="Karnataka">Karnataka</option>
                     <option value="Telangana">Telangana</option>
-                    <option value="Gujarat">Gujarat</option>
+                    <option value="Gujarat">Gujarat</option> */}
                   </select>
                 </label>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label className="block">Language
-                  <select
-                    className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm"
-                  >
-                    <option value="">Select Language</option>
-                    <option value="English">English</option>
-                    <option value="Hindi">Hindi</option>
-                  </select>
-                </label>
+              <div className="flex flex-col md:flex-row items-center gap-4 md:mt-2">
+              <div>
+  <p>Gender</p>
+  <div className='flex mt-2'>
+  <label className="flex items-center gap-2 w-full md:w-auto mr-10">
+    <input type="radio" name="gender" className="w-4 h-4" value="male" /> Male
+  </label>
+  <label className="flex items-center gap-2 w-full md:w-auto">
+    <input type="radio" name="gender" className="w-4 h-4" value="female" /> Female
+  </label>
+  </div>
+</div>
+
+              </div>
                 <label className="block">Soil Type
                   <select
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm"

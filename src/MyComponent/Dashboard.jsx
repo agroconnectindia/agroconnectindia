@@ -3,9 +3,14 @@ import React, { useEffect,useState } from 'react';
 import data from './Variable'; 
 
 import logo from './icon/logot.png'
+import cow from './icon/cow.png'
+import egg from './icon/egg.png'
 import DashboardWrapper from './DashboardWrapper';
 import Header from './Header'
 import Footer from './Footer'
+import { gsap } from "gsap";
+import {useRef} from 'react'
+import { useGSAP } from '@gsap/react';
 
 
 export default function Dashboard() {
@@ -22,7 +27,24 @@ export default function Dashboard() {
     
 
 
-    
+    const box1Ref = useRef(null);
+    const box2Ref = useRef(null);
+
+    useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.from(
+      box1Ref.current,
+      { opacity: 0, x: -10 }
+      
+    )
+     
+      .from(
+        box2Ref.current,
+        { opacity: 0, scale: 0.5 },
+        
+      )
+    }, []);
 
     
     
@@ -164,62 +186,59 @@ return (
             <button onClick={handleClosee} className="absolute  text-white top-2 right-2 ">
     X
   </button>
-  {/* egg */}
-</div>
-
-
-{/* popover 3 */}
-<div className={`absolute md:h-[530px] md:w-[1090px] h-[650px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen1 ? 'block' : 'hidden'} z-50  `}>
-            <button onClick={handleClosee1} className="absolute  text-white top-2 right-2 ">
-    X
-  </button>
-  <div className=' w-full z-50 mt-10   '>
-  <div className="max-w-4xl mx-auto p-6   rounded-xl">
+  <div className="w-full z-50 mt-10">
+    <div className="max-w-4xl mx-auto p-6 rounded-xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Left Side: Form Inputs */}
+        
+        {/* Right Side: Weekly Summary (Now moved to left) */}
+        <div className="p-4 flex flex-col justify-center text-center">
+          <img src={egg} className='md:h-52 md:w-52  h-10 w-10 md:ml-9' alt="" />
+          <div className='flex  gap-10'>
+          <div className='mr-2'>
+          <div className=" text-xl font-bold">Total Eggs</div>
+          <div className="text-xl font-semibold py-2 px-4 rounded-md">
+            250 
+          </div>
+          </div>
+
+          <div>
+          <div className=" text-xl font-bold">Total Amount</div>
+          <div className="text-2xl font-semibold py-2 px-4 rounded-md">
+            1500.87
+          </div>
+          </div>
+          </div>
+        </div>
+
+        {/* Left Side: Form Inputs (Now moved to right) */}
         <div className="p-4">
           <div className="space-y-4">
             <div className="flex items-center">
-              <label className="w-24 font-semibold ">Date:</label>
+              <label className="w-24 font-semibold">Date:</label>
               <input 
-              className='bg-slate-200 text-black p-2 rounded-md w-full'
-               type="date" 
-               style={{
-                color: "black", 
-                WebkitTextFillColor: "black", 
-                WebkitAppearance: "none"
-              }} />
-              
+                className="bg-slate-200 text-black p-2 rounded-md w-full"
+                type="date"
+                style={{
+                  color: "black", 
+                  WebkitTextFillColor: "black", 
+                  WebkitAppearance: "none"
+                }} 
+              />
             </div>
 
             <div className="flex items-center">
               <label className="w-24 font-semibold">Qty:</label>
-              <input
-                type="number"
-                
-                className="border p-2 rounded-md w-full bg-gray-200"
-                
-              />
+              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
             </div>
 
             <div className="flex items-center">
               <label className="w-24 font-semibold">Rate:</label>
-              <input
-                type="number"
-                
-                className="border p-2 rounded-md w-full bg-gray-200"
-                
-              />
+              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
             </div>
 
             <div className="flex items-center">
               <label className="w-24 font-semibold">Amount:</label>
-              <input
-                type="number"
-                
-                className="border p-2 rounded-md w-full bg-gray-200"
-                
-              />
+              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
             </div>
 
             <button className="w-full bg-gray-300 text-black font-semibold py-2 rounded-md shadow">
@@ -228,22 +247,86 @@ return (
           </div>
         </div>
 
-        {/* Right Side: Weekly Summary */}
-        <div className="p-4 flex flex-col justify-center text-center">
-          <div className="text-xl font-bold">Total Milk (Week)</div>
-          <div className="text-2xl font-semibold bg-gray-200 py-2 px-4 rounded-md">
-            154 L
-          </div>
-
-          <div className="mt-4 text-xl font-bold">Total Amount (Week)</div>
-          <div className="text-2xl font-semibold bg-gray-200 py-2 px-4 rounded-md">
-            25000.87
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+{/* popover 3 */}
+<div  className={`absolute md:h-[530px] md:w-[1090px] h-[650px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen1 ? 'block' : 'hidden'} z-50`}>
+  <button onClick={handleClosee1} className="absolute text-white top-2 right-2">
+    X
+  </button>
+  
+  <div ref={box2Ref} className="w-full z-50 mt-10">
+    <div className="max-w-4xl mx-auto p-6 rounded-xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        {/* Right Side: Weekly Summary (Now moved to left) */}
+        <div className="p-4 flex flex-col justify-center text-center">
+          <img src={cow} className='md:h-60 md:w-60 h-40 w-40 ' alt="" />
+          <div className='flex  gap-10'>
+          <div className='mr-2'>
+          <div className=" text-xl font-bold">Total Milk</div>
+          <div className="text-2xl font-semibold py-2 px-4 rounded-md">
+            250 L
+          </div>
+          </div>
+
+          <div>
+          <div className=" text-xl font-bold">Total Amount</div>
+          <div className="text-2xl font-semibold py-2 px-4 rounded-md">
+            25000.87
+          </div>
+          </div>
+          </div>
+        </div>
+
+        {/* Left Side: Form Inputs (Now moved to right) */}
+        <div className="p-4">
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <label className="w-24 font-semibold">Date:</label>
+              <input 
+                className="bg-slate-200 text-black p-2 rounded-md w-full"
+                type="date"
+                style={{
+                  color: "black", 
+                  WebkitTextFillColor: "black", 
+                  WebkitAppearance: "none"
+                }} 
+              />
+            </div>
+
+            <div className="flex items-center">
+              <label className="w-24 font-semibold">Qty:</label>
+              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
+            </div>
+
+            <div className="flex items-center">
+              <label className="w-24 font-semibold">Rate:</label>
+              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
+            </div>
+
+            <div className="flex items-center">
+              <label className="w-24 font-semibold">Amount:</label>
+              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
+            </div>
+
+            <button className="w-full bg-gray-300 text-black font-semibold py-2 rounded-md shadow">
+              SUBMIT
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 {/* popover 4 */}
@@ -337,29 +420,47 @@ return (
     {/* 3rd row */}
     <div className='m-4 grid grid-cols-2  gap-4 sm:grid-cols-12 md:ml-36'>
         <div onClick={handleDivvClick} className='min-h-[150px] w-auto rounded-2xl cursor-pointer  shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-6 '>
-        <div className='md:flex '>
-            <div className=''>
-            <p className='md:text-2xl font-bold italic flex  '>Egg Production</p>
-            <p className='flex md:mx-10 mx-4 my-4 font-bold text-3xl '>{EggProduction}%</p>
-            </div>
+        <p className='text-2xl pt-2 font-bold italic text-center'>Egg Production</p>
+        <div className="p-4 flex flex-col justify-center text-center">
+          
+          <div className='flex gap-10'>
+          <div className='mr-2'>
+          <div className="text-xl font-bold">Total Eggs (Week)</div>
+          <div className="text-xl   py-2 px-4 rounded-md">
+            250 
+          </div>
+          </div>
 
-            <div className='md:ml-10  gap-6'>
-            <div className=''>
-            <p className='md:text-sm pt-  italic flex '>Cumulative Eggs</p>
-            <p className='flex mx-2 my-2  text-2xl'>{CumulativeEggs}</p>
-            </div>
-
-            <div className='text-center '>
-            <p className='md:text-sm pt-  italic flex '>Egg Production</p>
-            <p className='flex mx-6 my-2  text-2xl    '>{EggProduction}</p>
-            </div>
-            </div>
-            
-            </div>
+          <div>
+          <div className=" text-xl font-bold">Total Amount (Week)</div>
+          <div className="text-2xl  py-2 px-4 rounded-md">
+            1500
+          </div>
+          </div>
+          </div>
+        </div>
         </div>
     
         <div onClick={handleDivvClick1} className='min-h-[150px] w-auto rounded-2xl cursor-pointer shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-6 '>
-        <p className='text-2xl pt-2 font-bold italic'>Milk Production</p>
+        <p className='text-2xl pt-2 font-bold italic text-center'>Milk Production</p>
+        <div className="p-4 flex flex-col justify-center text-center">
+          
+          <div className='flex gap-10'>
+          <div className='mr-2'>
+          <div className="text-xl font-bold">Total Milk (Week)</div>
+          <div className="text-xl   py-2 px-4 rounded-md">
+            154 L
+          </div>
+          </div>
+
+          <div>
+          <div className=" text-xl font-bold">Total Amount (Week)</div>
+          <div className="text-2xl  py-2 px-4 rounded-md">
+            25000.87
+          </div>
+          </div>
+          </div>
+        </div>
         </div>
         
     </div>

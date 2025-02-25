@@ -12,7 +12,7 @@ import Offlinepage from './MyComponent/Offlinepage'
 import Profile from './MyComponent/Profile'
 import Login from './MyComponent/Loginpage'
 import Loginpage from './MyComponent/Loginpage';
-import Saurav from './MyComponent/registrationform'
+import Registrationform from './MyComponent/registrationform'
 
 
 
@@ -23,38 +23,38 @@ export default function Home() {
       useEffect(() => {
           setTimeout(() => {
               setLoading(false);
-          }, 0); // Simulating a 2-second loading time
+          }, 3000); // Simulating a 2-second loading time
       }, []);
   return (
     
     
-    <Offlinepage>
+    <>
       {loading ? (
-                <div className="
-                 flex justify-center items-center h-screen w-screen ml-10 md:ml-20 bg-white">
-                    <svg width="600" height="100" xmlns="http://www.w3.org/2000/svg">
-                        <style>
-                            {`
-                                .letter {
-                                    opacity: 0;
-                                    animation: fadeIn 1s ease-in-out forwards;
-                                }
-                                .letter:nth-child(n) { animation-delay: calc(var(--order) * 0.1s); }
-                                @keyframes fadeIn {
-                                    0% { opacity: 0; transform: translateY(-10px); }
-                                    100% { opacity: 1; transform: translateY(0); }
-                                }
-                            `}
-                        </style>
-                        <text x="10" y="50" fontFamily="Arial, sans-serif" fontSize="36" fill="black">
-                            {"Agro Connect India.".split('').map((char, index) => (
-                                <tspan key={index} className="letter" style={{ '--order': index }}>
-                                    {char}
-                                </tspan>
-                            ))}
-                        </text>
-                    </svg>
-                </div>
+                <div className="flex justify-center items-center h-screen w-screen bg-white px-4">
+                <svg className="w-full max-w-lg" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
+                  <style>
+                    {`
+                      .letter {
+                        opacity: 0;
+                        animation: fadeIn 1s ease-in-out forwards;
+                      }
+                      .letter:nth-child(n) { animation-delay: calc(var(--order) * 0.1s); }
+                      @keyframes fadeIn {
+                        0% { opacity: 0; transform: translateY(-10px); }
+                        100% { opacity: 1; transform: translateY(0); }
+                      }
+                    `}
+                  </style>
+                  <text x="50%" y="50" textAnchor="middle" fontFamily="Arial, sans-serif" fontSize="clamp(24px, 5vw, 36px)" fill="black">
+                    {"Agro Connect India.".split('').map((char, index) => (
+                      <tspan key={index} className="letter" style={{ '--order': index }}>
+                        {char}
+                      </tspan>
+                    ))}
+                  </text>
+                </svg>
+              </div>
+              
             ) : (
     <Routes>
       <Route path='/' element={<Dashboard/>} />
@@ -68,11 +68,14 @@ export default function Home() {
     </Routes>
           
             )}
+            
 
-    </Offlinepage>
+    </>
 
     
     
   )
+
+  
 }
 

@@ -9,12 +9,17 @@ import stat from './icon/stat.png'
 import market from './icon/market.png'
 import recommendation from './icon/farm.png'
 import about from './icon/about.png'
+import profileMale from "./icon/malepfp.png";
+import profileFemale from "./icon/femalepfp.png";
 
 
 
 
 let name= 'Saurav Zure';
 export default function Side() {
+
+  const gender = "male"; // Change to "female" to test
+    const profileImage = gender === "male" ? profileMale : profileFemale;
 
 
   return (
@@ -24,12 +29,12 @@ export default function Side() {
       <div className=" md:w-64 h-screen fixed top-0 left-0 flex flex-col text-black  bg-gray-200 shadow-2xl">
         
        <div className=" items-center justify-center h-20 flex-col mt-14">
-       <Link to={'/Profile'} ><img className='  md:h-20 h-10  md:ml-20 my-4  bg-black rounded-[50%] mb-5' src={pfp} alt="Dashboard" /></Link>
+       <Link to={'/Profile'} ><img className='  md:h-32 h-10  md:ml-14 my-4  bg-white rounded-[50%] mb-5' src= {profileImage} alt="Dashboard" /></Link>
       
       <h1 className='font-bold text-3xl mt-4   text-center'> {name} </h1>
         </div>
         
-        <nav className="flex flex-col flex-grow overflow-y-auto mt-32"> 
+        <nav className="flex flex-col flex-grow overflow-y-auto mt-36"> 
            
           <div className='text-center'>
            <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={dashboard} alt="" /><Link to={'/'}><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600  '>Dashboard</div></Link></div>
