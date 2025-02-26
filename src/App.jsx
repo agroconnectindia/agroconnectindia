@@ -29,7 +29,7 @@ export default function Home() {
   return (
     
     
-    <>
+    <Offlinepage>
       {loading ? (
                 <div className="flex justify-center items-center h-screen w-screen bg-white px-4">
                 <svg className="w-full max-w-lg" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@ export default function Home() {
               
             ) : (
     <Routes>
-      <Route path='/' element={<Dashboard/>} />
+      <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/Recomendations' element={<Recommendation/>} />
       <Route path='/News' element={<News/>} />
       <Route path='/Report' element={<Report/>} />
@@ -66,12 +66,14 @@ export default function Home() {
       <Route path='/About' element={<About/>} />
       <Route path='/Profile' element={<Profile/>} /> 
       <Route path='/Search' element={<Search/>} />
+      <Route path='/' element={<Loginpage/>} />
+      <Route path='/register' element={<Registrationform/>} />
     </Routes>
           
             )}
             
 
-    </>
+    </Offlinepage>
 
     
     
