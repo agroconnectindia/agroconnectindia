@@ -14,6 +14,8 @@ import Profile from './MyComponent/Profile'
 import Login from './MyComponent/Loginpage'
 import Loginpage from './MyComponent/Loginpage';
 import Registrationform from './MyComponent/registrationform'
+import ProtectedRoute from './MyComponent/authentication/PrivateRoute'
+import PrivateRoute from './MyComponent/authentication/PrivateRoute';
 
 
 
@@ -57,7 +59,12 @@ export default function Home() {
               </div>
               
             ) : (
+              
     <Routes>
+      <Route path='/' element={<Loginpage/>} />
+      <Route path='/register' element={<Registrationform/>} />
+      
+      <Route element={<ProtectedRoute />}>
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/Recomendations' element={<Recommendation/>} />
       <Route path='/News' element={<News/>} />
@@ -66,10 +73,11 @@ export default function Home() {
       <Route path='/About' element={<About/>} />
       <Route path='/Profile' element={<Profile/>} /> 
       <Route path='/Search' element={<Search/>} />
-      <Route path='/' element={<Loginpage/>} />
-      <Route path='/register' element={<Registrationform/>} />
+      </Route>
+      
+      
     </Routes>
-          
+   
             )}
             
 

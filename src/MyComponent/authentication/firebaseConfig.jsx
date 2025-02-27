@@ -20,7 +20,7 @@
 // export { auth , googleProvider };
 
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, GoogleAuthProvider , sendPasswordResetEmail , onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB8CudHPR5Mn6BRm4O2zQ2HnbgHt6UV0L4",
@@ -37,5 +37,5 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider(); // <-- Define googleProvider
 
-export { auth, googleProvider }; // <-- Make sure it's exported
+export { auth, googleProvider , sendPasswordResetEmail ,onAuthStateChanged }; // <-- Make sure it's exported
 

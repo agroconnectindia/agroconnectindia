@@ -7,6 +7,7 @@ import { loginUser , registerUser } from "./authentication/authService";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "./authentication/firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc"
 
 
 
@@ -20,10 +21,24 @@ function Loginpage() {
   const handleLogin = async () => {
     try {
       await loginUser(email, password);
-      
       navigate("/dashboard");
     } catch (error) {
-      setErrorMessage(error.message);
+      
+
+      let errorMsg = "An unknown error occurred. Please try again."; // Default error message
+  
+      // Check if error has a message property
+      if (error?.message) {
+        errorMsg = error.message
+          .replace(/^Firebase: /, "") // Remove "Firebase: " prefix
+          .replace(/\(auth\//, "") // Remove "(auth/"
+          .replace(/\)\./, "") // Remove ")." // Remove anything in parentheses (e.g., error codes)
+          .trim();
+          setErrorMessage(errorMsg);
+
+      }
+  
+      setErrorMessage(errorMsg);
     }
   };
 
@@ -101,12 +116,17 @@ function Loginpage() {
           <p className="text-center text-sm text-gray-600 mt-4">
             Don’t have an account yet? <Link to={'/register'} className="text-blue-500">Sign Up</Link>
           </p>
-          <button onClick={handleGoogleSignIn} style={{ backgroundColor: "#4285F4", color: "#fff" }}>
-        Continue with Google
+          <div className='flex justify-center mt-4 '>
+          <button onClick={handleGoogleSignIn} className='w-full bg-white border border-black text-black py-2 rounded-md hover:bg-gray-100'>
+          <div className='flex text-center justify-center'>
+            <div><FcGoogle className='text-2xl mr-2' /> </div>
+          <p>Continue with Google</p>
+          </div>
       </button>
+          </div>
       {errorMessage && (
-        <p className="text-red-500 text-sm">{errorMessage}</p> // Display error message
-      )}
+  <p className="text-red-500 text-sm mt-2">{errorMessage}</p> // Error will now be visible
+)}
           </div>
         </div>
       </div>
