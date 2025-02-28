@@ -3,7 +3,7 @@ from database import get_db_connection  # Import MySQL connection function
 
 app = Flask(__name__)
 
-@app.route('/poultryfarm', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def poultryfarmshow():
     conn = get_db_connection()
     if not conn:
@@ -20,7 +20,7 @@ def poultryfarmshow():
             cursor.execute("INSERT INTO poultryfarm (Date, Quantity, Rate, Amount) VALUES (%s, %s, %s, %s)",
                            (date, quantity, rate, amount))
             conn.commit()
-            return redirect('/poultryfarm')
+            return redirect('/')
         except Exception as e:
             print(f"Database Insert Error: {e}")
             return f"Error: {e}"

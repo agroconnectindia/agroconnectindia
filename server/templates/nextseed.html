@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .digital-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #28a745; /* Green color for digital display */
+        }
+        .date-list {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Farm Management</h1>
+        <div class="card shadow">
+            <div class="card-body">
+                <form id="dateForm" onsubmit="event.preventDefault(); calculateRemainingTime();">
+                    <div class="mb-3">
+                        <label for="user_date" class="form-label">Enter Start Date:</label>
+                        <input type="date" class="form-control" id="user_date" name="user_date" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculate</button>
+                </form>
+                <div id="result" class="mt-4 text-center">
+                    <!-- Result will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Display previously entered dates -->
+        <div class="card shadow mt-4">
+            <div class="card-body">
+                <h2 class="text-center mb-3">Previously Entered Dates</h2>
+                <ul class="list-group date-list">
+                    {% for date in dates %}
+                        <li class="list-group-item">{{ date }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        async function calculateRemainingTime() {
+            const userDate = document.getElementById('user_date').value;
+
+            try {
+                const response = await fetch('/calculate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `user_date=${userDate}`
+                });
+
+                const result = await response.json();
+
+                // Check if the response contains an error
+                if (result.error) {
+                    document.getElementById('result').innerHTML = `
+                        <div class="alert alert-danger" role="alert">
+                            ${result.error}
+                        </div>
+                    `;
+                } else {
+                    // Display the result in digital format
+                    document.getElementById('result').innerHTML = `
+                        <div class="digital-display">
+                            Remaining Time: ${result.remaining_months} months and ${result.remaining_days} days
+                        </div>
+                    `;
+
+                    // Reload the page to show the updated list of dates
+                    window.location.reload();
+                }
+            } catch (error) {
+                // Handle fetch errors
+                document.getElementById('result').innerHTML = `
+                    <div class="alert alert-danger" role="alert">
+                        Error: Failed to fetch data.
+                    </div>
+                `;
+                console.error('Fetch error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

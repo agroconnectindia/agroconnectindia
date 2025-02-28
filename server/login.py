@@ -75,12 +75,12 @@ def create_table():
         print("Failed to create table.")
 
 # Route for login page
-@app.route('/')
+@app.route('/login')
 def index():
     return render_template('login.html')
 
 # Route to handle form submission
-@app.route('/register', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def register():
     if request.method == 'POST':
         phonenumber = request.form['phonenumber']

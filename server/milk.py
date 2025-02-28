@@ -3,7 +3,7 @@ from database import get_db_connection
 
 app = Flask(__name__)
 
-@app.route('/milk', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def milkshow():
     conn = get_db_connection()
     if not conn:
@@ -20,7 +20,7 @@ def milkshow():
             cursor.execute("INSERT INTO milkdata (Date, Quantity, Rate, Amount) VALUES (%s, %s, %s, %s)",
                            (date, quantity, rate, amount))
             conn.commit()
-            return redirect('/milk')
+            return redirect('/')
         except Exception as e:
             return f"Error: {e}"
         finally:
