@@ -1,8 +1,62 @@
 import React from 'react'
 import logo from './icon/logot.png'
+import { Link } from 'react-router-dom';
+import RegistrationForm from './registrationform';
+import { useState } from "react";
+import { loginUser , registerUser } from "./authentication/authService";
+import { useNavigate } from "react-router-dom";
+import { auth, googleProvider } from "./authentication/firebaseConfig";
+import { signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc"
+
 
 
 function Loginpage() {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      await loginUser(email, password);
+      navigate("/dashboard");
+    } catch (error) {
+      
+
+      let errorMsg = "An unknown error occurred. Please try again."; // Default error message
+  
+      // Check if error has a message property
+      if (error?.message) {
+        errorMsg = error.message
+          .replace(/^Firebase: /, "") // Remove "Firebase: " prefix
+          .replace(/\(auth\//, "") // Remove "(auth/"
+          .replace(/\)\./, "") // Remove ")." // Remove anything in parentheses (e.g., error codes)
+          .trim();
+          setErrorMessage(errorMsg);
+
+      }
+  
+      setErrorMessage(errorMsg);
+    }
+  };
+
+
+  
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      console.log("Google User Signed In:", result.user);
+      
+      navigate("/dashboard");
+    } catch (error) {
+      
+    }
+  };
+
+
   return (
     <>
        <div className="flex w-screen items-center justify-center min-h-screen bg-gray-200 p-4 ">
@@ -28,9 +82,11 @@ function Loginpage() {
               <div className="flex items-center border rounded-lg p-2 mt-1 bg-white">
                 <span className="text-gray-500 pr-2">👤</span>
                 <input
-                  type="text"
+                  type="email"
                   placeholder="Enter Username ..."
                   className="w-full outline-none bg-white text-gray-700"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
             </div>
@@ -42,6 +98,8 @@ function Loginpage() {
                   type="password"
                   placeholder="Enter Password ..."
                   className="w-full outline-none bg-white text-gray-700"
+                  value={password}
+        onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
@@ -54,10 +112,21 @@ function Loginpage() {
             {/* <button className="w-full  bg-black text-white py-2 rounded-md hover:bg-gray-800 ">Login</button> */}
           </form>
           <div className='md:mt-14 mt-4'>
-          <button className="w-full  bg-black text-white py-2 rounded-md hover:bg-gray-800 ">Login</button>
+          <button onClick={handleLogin} className="w-full  bg-black text-white py-2 rounded-md hover:bg-gray-800  ">Login</button>
           <p className="text-center text-sm text-gray-600 mt-4">
-            Don’t have an account yet? <a href="#" className="text-blue-500">Sign Up</a>
+            Don’t have an account yet? <Link to={'/register'} className="text-blue-500">Sign Up</Link>
           </p>
+          <div className='flex justify-center mt-4 '>
+          <button onClick={handleGoogleSignIn} className='w-full bg-white border border-black text-black py-2 rounded-md hover:bg-gray-100'>
+          <div className='flex text-center justify-center'>
+            <div><FcGoogle className='text-2xl mr-2' /> </div>
+          <p>Continue with Google</p>
+          </div>
+      </button>
+          </div>
+      {errorMessage && (
+  <p className="text-red-500 text-sm mt-2">{errorMessage}</p> // Error will now be visible
+)}
           </div>
         </div>
       </div>

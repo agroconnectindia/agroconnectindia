@@ -1,7 +1,26 @@
 import React from 'react'
 import logo from './icon/logot.png'
+import { useState } from "react";
+import { registerUser } from "./authentication/authService";
+import { useNavigate } from "react-router-dom";
 
 function RegistrationForm() {
+
+  const [email1, setEmail1] = useState("");
+  const [password1, setPassword1] = useState("");
+  const navigate1 = useNavigate();
+
+  const handleRegister = async () => {
+    try {
+      await registerUser(email1, password1);
+      
+      navigate1("/");
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  };
+
+
   return (
     <>
       <div className="flex w-screen pt-[350px] md:pt-0 items-center justify-center min-h-screen bg-gray-200 p-4">
@@ -54,14 +73,18 @@ function RegistrationForm() {
                     placeholder="Email"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
                     required
+                    value={email1} 
+                    onChange={(e) => setEmail1(e.target.value)} 
                   />
                 </label>
-                <label className="block">Phone No
+                <label className="block">Password
                   <input
-                    type="tel"
-                    placeholder="Phone No"
+                    type="password"
+                    placeholder="Password"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
                     required
+                    value={password1} 
+                    onChange={(e) => setPassword1(e.target.value)}
                   />
                 </label>
               </div>
@@ -225,9 +248,10 @@ function RegistrationForm() {
               </div>
               </div>
 
-              <button className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 text-sm">
-                Register
-              </button>
+              <button type="button" onClick={handleRegister} className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 text-sm">
+  Register
+</button>
+
             </form>
           </div>
         </div>
