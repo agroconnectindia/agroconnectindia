@@ -1,39 +1,57 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3
-# Function to connect to SQLite database
-def create_connection():
-    return sqlite3.connect("agroconnect.db")
+#a = [1,2,3,4,5,6,7,8]
+#print(a)#
 
-# Create table if it doesn't exist
-def create_table():
-    conn = create_connection()
-    cursor = conn.cursor()
+'''tuple1 = (1,2,3,4,5,6,7,8)
+print(tuple1)'''
 
-    conn.commit()
-    conn.close()
+'''set1 = {1,2,3,4,5,6,7,8}
+print(set1)
+dict1 = {1: 'nagar', 2: 'pune', 3: 'beed'}
+print(dict1)'''
 
-# Route for login page
+'''a= 12.2
+b= 12.23
+c= str(a+b)
+print(c)
+print(type(c))
+print(type(a))
+print(type(b))
+print(type(c))'''
 
-# Route to handle form submission
-def zregister():
-    if request.method == 'POST':
-        phonenumber = request.form['phonenumber']
-        email = request.form['email']
 
-        conn = create_connection()
-        cursor = conn.cursor()
+'''test=["samarth",23,45,67,89,"hello"]
+print(test[0:4])'''
+'''
+work=("beed",23,45,67,89,"Nagar")
+print(work)'''
 
-        try:
-            cursor.execute("INSERT INTO login (phonenumber, email) VALUES (?, ?)", (phonenumber, email))
-            conn.commit()
-            message = "Registration Successful!"
-        except sqlite3.IntegrityError:
-            message = "Error: Phone number or Email already exists!"
-        finally:
-            conn.close()
 
-        return message  # Display message on screen
+'''set1 = {1,2,3,4,5,6,7,8,3,4,5,6,7,8}
+print(set1)'''
 
-# Initialize table
-create_table()
+'''hello={"name":"samarth","age":23,"city":"beed"}
+print(hello)'''
+''''''
+'''a= 25
+b=45
+print("a<b",a<b),print("a>b",a>b),print("a==b",a==b),print("a!=b",a!=b),print("a<=b",a<=b),print("a>=b",a>=b)
+a=int(input("enter the value of a"))
+b=int(input("enter the value of b"))
+if a==b:
+    print("a is equal to b")
+else:
+    print("a is not equal to b")'''
 
+a={
+    "name":"samarth",
+    "age":23,
+    "city":"beed"
+}
+print(a["city"])
+
+for i in range(5):
+    print("Number:", i)
+    if i % 2 == 0:
+        print(i, "is even")
+    else:
+        print(i, "is odd")
