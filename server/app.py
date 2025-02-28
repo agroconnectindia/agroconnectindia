@@ -22,11 +22,13 @@ def milk():
 @app.route('/poultry', methods=['GET', 'POST'])
 def poultry():
     return poultryshow()
+@app.route('/login', methods=['GET', 'POST'])
+def regist():
+    return register()
 
 
-# @app.route('/zzregister')
-# def zzreturn():
-#     return render_template("login.html")
+
+
 
 @app.route('/zzregistersuccess', methods=['POST'])
 def register():

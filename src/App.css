@@ -11,11 +11,3 @@
     font-family: iosregular;
     src: url('/src/MyComponent/Fonts/sf-regular.woff2');
 }
-
-h1{
-    font-family: 'ios';
-}
-
-p{
-    font-family: 'iosregular';
-}

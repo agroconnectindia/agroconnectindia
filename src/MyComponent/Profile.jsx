@@ -12,7 +12,7 @@ const Profile = () => {
   let phone = "1212121212";
 
   // Gender-based profile image selection
-  const gender = "female"; // Change to "female" to test
+  const gender = "male"; // Change to "female" to test
   const profileImage = gender === "male" ? profileMale : profileFemale;
 
   return (
