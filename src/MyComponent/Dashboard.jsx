@@ -4,6 +4,8 @@ import data from './Variable';
 import logo from './icon/logot.png'
 import cow from './icon/cow.png'
 import egg from './icon/egg.png'
+import eggs from './icon/eggs.png'
+import milkp from './icon/milkp.png'
 import DashboardWrapper from './DashboardWrapper';
 import Header from './Header'
 import Footer from './Footer'
@@ -14,16 +16,9 @@ import { useGSAP } from '@gsap/react';
 
 
 export default function Dashboard() {
-    let Name = 3112 ;
     let NetProfit = 322 ;
     let Exeniture = 10020 ;
-    let CumulativeEggs = 18125 ;
-    let Trays = 18125 ;
-    let EggProduction = 80 ;
-    let TotalFeedIntake = 1260 ;
-    let CostPerEgg = 23;
-    let GramsPerEgg = 50;
-    let Weather = 44;
+    
     
 
 
@@ -141,17 +136,19 @@ return (
     <DashboardWrapper>
 
     
-    <div className='overflow-y-auto mt-[100px] h-screen'>
+    <div className='overflow-y-auto mt-[100px] h-full'>
     {/* main div */}
     <div className=' md:w-[1250px] md:absolute md:top-6 md:left-[200px]  overflow-y-auto  '>
     
         {/* sub divs */}
         {/* 1st row */} 
+        <div className='md:block hidden'>
         <Header pagename='Dashboard'/>
+        </div>
  
 
 
-    <div className='m-4 grid grid-cols-2 md:grid-col-2 gap-4 sm:grid-cols-12 md:ml-36   '>
+    <div className='m-4 grid grid-cols-2 md:grid-col-2 gap-4 sm:grid-cols-12 md:ml-36 mt-16 md:mt-3   '>
     {/* <div className='m-4 grid  gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  md:ml-36   '> */}
         <div className='min-h-[100px] sm:col-span-2   rounded-2xl backdrop-blur-2xl   shadow-2xl hidden md:block  '> <img className='h-40' src={logo} alt="" /> </div>
         <div onClick={handleDivClick} className='min-h-[100px] sm:col-span-6   rounded-2xl backdrop-blur-2xl  shadow-2xl cursor-pointer    '>
@@ -421,52 +418,75 @@ return (
     </div>
     {/* 3rd row */}
     <div className='m-4 grid grid-cols-2  gap-4 sm:grid-cols-12 md:ml-36'>
-        <div onClick={handleDivvClick} className='min-h-[150px] w-auto rounded-2xl cursor-pointer  shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-6 '>
-        <p className='text-2xl pt-2 font-bold italic text-center'>Egg Production</p>
-        <div className="p-4 flex flex-col justify-center text-center">
-          
-          <div className='flex gap-10'>
-          <div className='mr-2'>
-          <div className="text-xl font-bold">Total Eggs (Week)</div>
-          <div className="text-xl   py-2 px-4 rounded-md">
+        <div onClick={handleDivvClick} className='min-h-[150px] w-auto rounded-2xl cursor-pointer  shadow-2xl  backdrop-blur-2xl   sm:col-span-6 '>
+        
+        <div className=" flex  justify-center text-center md:p-0 p-6">
+          <div className='hidden md:block'>
+          <img src={eggs} className='md:h-[200px] md:w-full aspect-square rounded-l-2xl  h-10 w-10' alt="" />
+          </div>
+          <div className=' gap-10'>
+            <div>
+            {/* <img src={egg} className='md:h-20 md:w-20  h-10 w-10 md:ml-9 ' alt="" /> */}
+            <p className='md:text-2xl text-lg pt-2 font-bold italic text-center'>Egg Production</p>
+            </div>
+
+          <div className='flex mt-5 '>
+          <div className='mr-2 '>
+          <div className="md:text-xl font-bold">Total Eggs (Week)</div>
+          <div className="md:text-xl   py-2 px-4 rounded-md">
             250 
           </div>
           </div>
 
           <div>
-          <div className=" text-xl font-bold">Total Amount (Week)</div>
-          <div className="text-2xl  py-2 px-4 rounded-md">
+          <div className="md:text-xl font-bold">Total Amount (Week)</div>
+          <div className="md:text-2xl  py-2 px-4 rounded-md">
             1500
           </div>
           </div>
           </div>
+
+          </div>
         </div>
         </div>
     
-        <div onClick={handleDivvClick1} className='min-h-[150px] w-auto rounded-2xl cursor-pointer shadow-2xl  backdrop-blur-2xl p-4 pt-4 sm:col-span-6 '>
-        <p className='text-2xl pt-2 font-bold italic text-center'>Milk Production</p>
-        <div className="p-4 flex flex-col justify-center text-center">
-          
-          <div className='flex gap-10'>
-          <div className='mr-2'>
-          <div className="text-xl font-bold">Total Milk (Week)</div>
-          <div className="text-xl   py-2 px-4 rounded-md">
-            154 L
+        <div onClick={handleDivvClick1} className='min-h-[150px] w-auto rounded-2xl cursor-pointer shadow-2xl  backdrop-blur-2xl sm:col-span-6 '>
+        <div className=" flex  justify-center text-center md:p-0 p-6">
+          <div className='hidden md:block'>
+          <img src={milkp} className='md:h-[200px] md:w-full aspect-square rounded-l-2xl  h-10 w-10' alt="" />
+          </div>
+          <div className=' gap-10'>
+            <div>
+            {/* <img src={egg} className='md:h-20 md:w-20  h-10 w-10 md:ml-9 ' alt="" /> */}
+            <p className='md:text-2xl text-lg pt-2 font-bold italic text-center'>Milk Production</p>
+            </div>
+
+          <div className='flex mt-5 '>
+          <div className='mr-2 '>
+          <div className="md:text-xl font-bold">Total Milk (Week)</div>
+          <div className="md:text-xl   py-2 px-4 rounded-md">
+            250L
           </div>
           </div>
 
           <div>
-          <div className=" text-xl font-bold">Total Amount (Week)</div>
-          <div className="text-2xl  py-2 px-4 rounded-md">
-            25000.87
+          <div className="md:text-xl font-bold">Total Amount (Week)</div>
+          <div className="md:text-2xl  py-2 px-4 rounded-md">
+            15000
           </div>
           </div>
+          </div>
+
           </div>
         </div>
         </div>
         
     </div>
-    <Footer  />
+  
+
+  <div className=''>
+  <Footer  />
+  </div>
     
 
     

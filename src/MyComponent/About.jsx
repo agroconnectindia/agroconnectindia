@@ -7,6 +7,8 @@ import Header from './Header'
 
 function About() {
 
+  
+
   const teamMembers = [
     { name: "Omkar Saundore", role: "Designer" },
     { name: "Pandurang Zure", role: "Frontend" },

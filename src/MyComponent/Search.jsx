@@ -101,16 +101,16 @@ function Search() {
 
   return (
     <DashboardWrapper>
-        <div className="body h-full">
-        <div className=' md:w-[1250px] md:absolute  top-6 md:left-[200px]  overflow-y-auto '>
-        <div >
+        <div className="body w-screen ">
+        <div className=' md:w-[1250px] md:absolute  top-6 md:left-[200px]  md:overflow-y-auto '>
+        <div className='hidden md:block' >
   <Header pagename="Agro-Chat"/>
   </div>
-  <div className=" flex flex-col items-center p-6 ml-20 ">
-    <div className="flex md:flex-row flex-col   p-6  w-full  ">
+  <div className=" flex flex-col items-center px-6 md:ml-20 md:mt-10">
+    <div className="flex md:flex-row flex-col   px-6  w-full  ">
       
       <form onSubmit={handleSubmit} className="w-full max-w-md border shadow-xl border-gray-400 p-4 rounded-lg">
-      <h1 className="text-2xl font-bold mb-4">Agro Connect Chatbot</h1>
+      <h1 className="text-2xl font-bold mb-4 hidden md:block">Agro Connect Chatbot</h1>
         <textarea
           className="w-full p-2 border rounded mb-2 bg-transparent text-black"
           placeholder="Ask something..."
@@ -118,7 +118,7 @@ function Search() {
           onChange={(e) => setInput(e.target.value)}
         />
         <div
-          className="mb-2 p-4 h-60 border-dashed border-2 border-gray-400 rounded-lg cursor-pointer"
+          className="mb-2 p-4 md:h-60 border-dashed border-2 border-gray-400 rounded-lg cursor-pointer"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           ref={dropAreaRef}
@@ -132,7 +132,7 @@ function Search() {
           />
           <button
             type="button"
-            className="p-2 h-52 bg-gray-300 rounded w-full"
+            className="p-2 md:h-52 bg-gray-300 rounded w-full"
             onClick={handleButtonClick}
           >
             {image ? "Change Image" : "Upload or Drag Image Here"}
@@ -155,12 +155,12 @@ function Search() {
           {loading ? "Generating Response..." : "Generate Response"}
         </button>
       </form>
-      <div className='border w-[600px] border-gray-400 rounded-lg ml-10 p-2 shadow-xl'>
+      <div className='border md:w-[600px] border-gray-400 rounded-lg md:ml-10 p-2 shadow-xl mt-10 md:mt-0'>
       <h2 className="text-lg font-semibold">Response:</h2>
       {response && (
-        <div className=" px-4   shadow rounded w-[550px] ">
+        <div className=" px-4   shadow rounded md:w-[550px] ">
           
-          <div className='overflow-y-scroll h-[450px] w-[550px]' dangerouslySetInnerHTML={{ __html: response }}></div>
+          <div className='overflow-y-scroll h-[200px] md:h-[450px] md:w-[550px]' dangerouslySetInnerHTML={{ __html: response }}></div>
         </div>
       )}
       </div>

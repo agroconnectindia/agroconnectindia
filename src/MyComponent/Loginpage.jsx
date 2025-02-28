@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { auth, googleProvider } from "./authentication/firebaseConfig";
 import { signInWithPopup } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc"
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -21,8 +23,26 @@ function Loginpage() {
   const handleLogin = async () => {
     try {
       await loginUser(email, password);
+      toast.success("Login Successful!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       navigate("/dashboard");
     } catch (error) {
+      toast.error(errorMessage, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       
 
       let errorMsg = "An unknown error occurred. Please try again."; // Default error message
@@ -48,10 +68,27 @@ function Loginpage() {
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      console.log("Google User Signed In:", result.user);
+      toast.success("Login Successful with Google!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       
       navigate("/dashboard");
     } catch (error) {
+      toast.error({errorMessage}, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       
     }
   };
@@ -103,12 +140,7 @@ function Loginpage() {
                 />
               </div>
             </div>
-            <div className="flex justify-between text-sm text-gray-600">
-              <label className="flex items-center">
-                <input type="checkbox" className="mr-2" /> Keep me logged in
-              </label>
-              <a href="#" className="text-blue-500">Forgot Password?</a>
-            </div>
+            
             {/* <button className="w-full  bg-black text-white py-2 rounded-md hover:bg-gray-800 ">Login</button> */}
           </form>
           <div className='md:mt-14 mt-4'>
@@ -125,11 +157,12 @@ function Loginpage() {
       </button>
           </div>
       {errorMessage && (
-  <p className="text-red-500 text-sm mt-2">{errorMessage}</p> // Error will now be visible
+  <p className="text-red-500 text-md mt-2 text-center font-semibold">{errorMessage}</p> // Error will now be visible
 )}
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
     </>
   )
