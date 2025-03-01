@@ -13,8 +13,8 @@ const DashboardWrapper = ({children})=>{
             <div className="block md:hidden absolute top-20 px-3 left-0 right-0 z-50">
             <Header pagename="Agro-Connect"/>
             </div>
-            <div  className="hidden md:block"><Side /></div>
-            <Sidebar/>
+            <Side />
+            
 
             <div >
             {children}

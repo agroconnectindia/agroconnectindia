@@ -4,14 +4,16 @@ import data from './Variable';
 import logo from './icon/logot.png'
 import cow from './icon/cow.png'
 import egg from './icon/egg.png'
-import eggs from './icon/eggs.png'
-import milkp from './icon/milkp.png'
+import eggs from './icon/eggs.jpg'
+import milkp from './icon/milk.jpg'
 import DashboardWrapper from './DashboardWrapper';
 import Header from './Header'
 import Footer from './Footer'
+import product from './icon/urea.png'
 import { gsap } from "gsap";
 import {useRef} from 'react'
 import { useGSAP } from '@gsap/react';
+import temp from './icon/temp.png'
 
 
 
@@ -22,24 +24,7 @@ export default function Dashboard() {
     
 
 
-    const box1Ref = useRef(null);
-    const box2Ref = useRef(null);
-
-    useGSAP(() => {
-    const tl = gsap.timeline();
-
-    tl.from(
-      box1Ref.current,
-      { opacity: 0, x: -10 }
-      
-    )
-     
-      .from(
-        box2Ref.current,
-        { opacity: 0, scale: 0.5 },
-        
-      )
-    }, []);
+    
 
     
     
@@ -260,7 +245,7 @@ return (
     X
   </button>
   
-  <div ref={box2Ref} className="w-full z-50 mt-10">
+  <div  className="w-full z-50 mt-10">
     <div className="max-w-4xl mx-auto p-6 rounded-xl">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
@@ -341,23 +326,26 @@ return (
 </div>
 
 {/* popover 4 */}
-<div className={`absolute md:h-[530px] md:w-[1090px] h-[600px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
+<div style={{ backgroundImage: `url(${temp})` }}
+ className={` bg-cover bg-center  absolute md:h-[530px] md:w-[1090px] h-[600px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
             <button onClick={handleClosee3} className="absolute  text-white top-2 right-2 ">
     X
   </button>
-  <div className=' w-full z-50 mt-10  '>
+  <div 
+  
+  className=' w-full z-50 mt-10 text-white  '>
     {/* add code */}
     
       {/* Weather Icon and Temperature */}
-      <div className="flex flex-col items-center">
+      <div  className="flex flex-col items-center bg-cover ">  
         <div className="text-9xl mb-2">🌤️</div>
-        <h2 className="text-6xl mt-4 mb-4 font-bold text-gray-800">
-          Pune <span className="text-gray-600">{temperature} °C</span>
+        <h2 className="text-6xl mt-4 mb-4 font-bold text-white">
+          Pune <span className="text-white ">{temperature} °C</span>
         </h2>
       </div>
       <hr className=''/>
       {/* Weather Details */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 text-black md:mt-10 text-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 text-white md:mt-10 text-center">
         <div>
           <p className="font-bold text-lg md:text-2xl ">Humidity</p>
           <p className="text-lg mt-1  md:text-2xl ">{humidity} %</p>
@@ -375,6 +363,7 @@ return (
           <p className="text-lg mt-1 md:text-2xl">{} %</p>
         </div>
       </div>
+      <p className='text-center mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum esse delectus obcaecati, itaque, ab repellendus, cupiditate fuga consequuntur dolor perspiciatis maxime tempore maiores tempora. Vel officiis laborum ad! Quisquam, maxime!</p>
     </div>
   
 </div>
@@ -408,7 +397,8 @@ return (
         <div>
             <p className='md:text-sm pt-2 font-bold italic flex ml-3'>Seed Information</p>
             </div>
-            <div>
+            <div className='flex justify-center items-center w-full'>
+            <img className='h-36 p-2 pt-3 flex justify-center' src={product} alt="" />
             <p className='md:p-5 p-3'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente esse alias, autem debitis ex corporis, maiores deleniti eveniet voluptates odio ratione optio qui odit a expedita dolorum officia architecto.
               </p>
@@ -422,7 +412,7 @@ return (
         
         <div className=" flex  justify-center text-center md:p-0 p-6">
           <div className='hidden md:block'>
-          <img src={eggs} className='md:h-[200px] md:w-full aspect-square rounded-l-2xl  h-10 w-10' alt="" />
+          <img src={eggs} className='md:h-[200px] md:w-full aspect-square rounded-l-2xl  h-10 w-10 ' alt="" />
           </div>
           <div className=' gap-10'>
             <div>
@@ -453,7 +443,7 @@ return (
         <div onClick={handleDivvClick1} className='min-h-[150px] w-auto rounded-2xl cursor-pointer shadow-2xl  backdrop-blur-2xl sm:col-span-6 '>
         <div className=" flex  justify-center text-center md:p-0 p-6">
           <div className='hidden md:block'>
-          <img src={milkp} className='md:h-[200px] md:w-full aspect-square rounded-l-2xl  h-10 w-10' alt="" />
+          <img src={milkp} className='md:h-[200px] md:w-full aspect-square  rounded-l-2xl  h-10 w-10' alt="" />
           </div>
           <div className=' gap-10'>
             <div>
