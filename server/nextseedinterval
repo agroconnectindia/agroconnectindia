@@ -1,0 +1,32 @@
+from flask import Flask, render_template, request, jsonify
+from datetime import datetime, timedelta
+from database import insert_next_seed_date  # Import function
+
+app = Flask(__name__)
+
+@app.route('/next-seed-interval', methods=['GET', 'POST'])
+def next_seed_interval():
+    if request.method == 'POST':
+        user_date = request.form.get('date')  # Get the entered date
+        if user_date:
+            insert_next_seed_date(user_date)  # Save to DB
+            
+            # Calculate the countdown (6 months from the entered date)
+            entered_date = datetime.strptime(user_date, "%Y-%m-%d")
+            target_date = entered_date + timedelta(days=180)
+            today = datetime.today()
+            
+            # Calculate remaining time
+            remaining_days = (target_date - today).days
+            remaining_months = remaining_days // 30
+            remaining_days = remaining_days % 30
+
+            return jsonify({
+                "months": remaining_months,
+                "days": remaining_days
+            })
+
+    return render_template('next_seed_interval.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
