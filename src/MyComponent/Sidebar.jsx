@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { logoutUser } from "./authentication/authService";
+import { useNavigate } from "react-router-dom";
+import { MdOutlineLogout } from "react-icons/md";
+
 
 
 //icons
@@ -11,6 +15,9 @@ import stat from './icon/stat.png'
 import market from './icon/market.png'
 import recommendation from './icon/farm.png'
 import about from './icon/about.png'
+import profileMale from "./icon/malepfp.png";
+import profileFemale from "./icon/femalepfp.png";
+import ai from './icon/ai.svg'
 
 
 
@@ -18,6 +25,22 @@ import about from './icon/about.png'
 // small screen
 let name= 'Saurav Zure';
 function Sidebar() {
+
+  const gender = "male"; // Change to "female" to test
+    const profileImage = gender === "male" ? profileMale : profileFemale;
+    const navigate = useNavigate();
+  
+    const handleLogout = async () => {
+      try {
+        await logoutUser();
+        alert("Logged Out!");
+        navigate("/");
+      } catch (error) {
+        alert(error.message);
+      }
+    };
+
+  
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -56,19 +79,20 @@ function Sidebar() {
         <nav className="flex flex-col flex-grow overflow-y-auto mt-32"> 
            
           <div className='text-center'>
-           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={dashboard} alt="" /><Link to={'/'}><div className='text-bold font-bold  text-black text-xl mb-2  '>Dashboard</div></Link></div>
-           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={recommendation} alt="" /><Link to={'/recomendations'}><div className='text-bold font-bold  text-black text-xl mb-2  '>Recomendations</div></Link></div>
-           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={newsicon} alt="" /><Link to={'/News'} ><div className='text-bold font-bold  text-black text-xl  mb-2 '>LatestNews</div></Link></div>
-           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={stat} alt="" /><Link to={'/Report'} ><div className='text-bold font-bold  text-black text-xl mb-2  '>Report</div></Link></div>
-           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={market} alt="" /><Link to={'/Marketplace'} ><div className='text-bold font-bold  text-black text-xl mb-2  '>Marketplace</div></Link> </div>
-           <div className='flex text-center ml-6 mb-4 hover:text-gray-500'> <img className='h-8 mr-2 ' src={about} alt="" /><Link to={'/About'} ><div className='text-bold font-bold  text-black text-xl '>About</div></Link> </div>
-            
-            
-
-
-
-            
-          </div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={dashboard} alt="" /><Link to={'/dashboard'}><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600  '>Dashboard</div></Link></div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={recommendation} alt="" /><Link to={'/recomendations'}><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600   '>Recomendations</div></Link></div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={newsicon} alt="" /><Link to={'/News'} ><div className='text-bold font-bold  text-black text-xl  mb-2 hover:text-gray-600  '>LatestNews</div></Link></div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={stat} alt="" /><Link to={'/Report'} ><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600   '>Report</div></Link></div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={market} alt="" /><Link to={'/Marketplace'} ><div className='text-bold font-bold  text-black text-xl mb-2 hover:text-gray-600   '>Marketplace</div></Link> </div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={ai} alt="" /><Link to={'/Search'} ><div className='text-bold font-bold  text-black text-xl hover:text-gray-600 '>ChatBot</div></Link> </div>
+                     <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={about} alt="" /><Link to={'/About'} ><div className='text-bold font-bold  text-black text-xl hover:text-gray-600 '>About</div></Link> </div>
+                     <div onClick={handleLogout} className='flex text-center ml-6 mt-6  '> <MdOutlineLogout className='text-3xl mx-1  text-red-600' /><Link to={'/About'} ><div className='text-bold font-bold  text-red-600 text-xl hover:text-gray-600 '>Logout</div></Link> </div>           
+                    
+          
+          
+          
+                      
+                    </div>
           
           </nav>
       </div>

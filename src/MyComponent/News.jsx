@@ -56,10 +56,12 @@ return (
 
 
 
-<div className=' md:w-[1250px] md:absolute md:top-6 md:left-[200px]  overflow-y-auto'>
+<div className=' md:w-[1250px] justify-center md:absolute md:top-6 md:left-[200px]  overflow-y-auto'>
+  <div className='md:block hidden'>
   <Header pagename="LatestNews"/>
+  </div>
 {/* <div className=' md:w-[1188px] md:absolute md:top-28 md:left-[200px] '> */}
- <div className='md:flex md:justify-center md:ml-[220px] mt-20'>
+ <div className='md:flex text-center justify-center md:ml-[220px] mt-20'>
 <button className='bg-slate-100 mr-6 mb-4' onClick={() => handleFilterClick('all')}>All</button>
 <button className='bg-slate-100 mr-6 mb-4' onClick={() => handleFilterClick('a')}>Latest News</button>
 <button className='bg-slate-100 mr-6 mb-4' onClick={() => handleFilterClick('b')}>Crop Related</button>
@@ -68,20 +70,9 @@ return (
 <button className='bg-slate-100 mr-6 mb-4' onClick={() => handleFilterClick('f')}>Weather Related</button>
 </div>
 
-<div className='h-[400px] md:ml-[200px] rounded-2xl bg-slate-100  overflow-scroll mt-8'>
+<div className='h-[400px] md:ml-[200px] rounded-2xl bg-slate-100  overflow-scroll mt-8 mx-3'>
 
-<div className=' hidden'>
 
-{isVisible && (
- <img
-   src={gra} 
-   alt="My Image"
-   
-
-   className={` object-cover absolute top-50 h-[400px] opacity-95  ${!isVisible && 'hidden'}`} // Hide using Tailwind CSS class
- />
-)}
-</div>
 
 <div>
  <p className='flex m-4 font-bold text-2xl'>News</p>

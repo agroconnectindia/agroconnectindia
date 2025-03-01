@@ -60,7 +60,7 @@ export default function Side() {
            <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={ai} alt="" /><Link to={'/Search'} ><div className='text-bold font-bold  text-black text-xl hover:text-gray-600 '>ChatBot</div></Link> </div>
            <div className='flex text-center ml-6 mb-4 '> <img className='h-8 mr-2 ' src={about} alt="" /><Link to={'/About'} ><div className='text-bold font-bold  text-black text-xl hover:text-gray-600 '>About</div></Link> </div>
            <div onClick={handleLogout} className='flex text-center ml-6 mt-6  '> <MdOutlineLogout className='text-3xl mx-1  text-red-600' /><Link to={'/About'} ><div className='text-bold font-bold  text-red-600 text-xl hover:text-gray-600 '>Logout</div></Link> </div>           
-            
+          
 
 
 

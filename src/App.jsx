@@ -30,8 +30,8 @@ export default function Home() {
       }, []);
   return (
     
-    
-    <Offlinepage>
+    // Offlinepage
+    <>
       {loading ? (
                 <div className="flex justify-center items-center h-screen w-screen bg-white px-4">
                 <svg className="w-full max-w-lg" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
@@ -81,7 +81,7 @@ export default function Home() {
             )}
             
 
-    </Offlinepage>
+    </>
 
     
     
