@@ -13,7 +13,7 @@ import product from './icon/urea.png'
 import { gsap } from "gsap";
 import {useRef} from 'react'
 import { useGSAP } from '@gsap/react';
-import temp from './icon/temp.png'
+import temp from './icon/temp.jpg'
 
 
 
@@ -327,7 +327,7 @@ return (
 
 {/* popover 4 */}
 <div style={{ backgroundImage: `url(${temp})` }}
- className={` bg-cover bg-center  absolute md:h-[530px] md:w-[1090px] h-[600px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
+ className={` bg-cover bg-center left-1 md:left-auto absolute md:h-[530px] md:w-[1090px] h-[600px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
             <button onClick={handleClosee3} className="absolute  text-white top-2 right-2 ">
     X
   </button>
@@ -339,13 +339,13 @@ return (
       {/* Weather Icon and Temperature */}
       <div  className="flex flex-col items-center bg-cover ">  
         <div className="text-9xl mb-2">🌤️</div>
-        <h2 className="text-6xl mt-4 mb-4 font-bold text-white">
-          Pune <span className="text-white ">{temperature} °C</span>
+        <h2 className="text-6xl mt-4 mb-4 font-bold text-black">
+          Pune <span className="text-black ">{temperature} °C</span>
         </h2>
       </div>
       <hr className=''/>
       {/* Weather Details */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 text-white md:mt-10 text-center">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 text-black md:mt-10 text-center">
         <div>
           <p className="font-bold text-lg md:text-2xl ">Humidity</p>
           <p className="text-lg mt-1  md:text-2xl ">{humidity} %</p>
@@ -363,7 +363,7 @@ return (
           <p className="text-lg mt-1 md:text-2xl">{} %</p>
         </div>
       </div>
-      <p className='text-center mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum esse delectus obcaecati, itaque, ab repellendus, cupiditate fuga consequuntur dolor perspiciatis maxime tempore maiores tempora. Vel officiis laborum ad! Quisquam, maxime!</p>
+      <p className='text-center mt-3 text-black'>Pune, located in Maharashtra, India, has a tropical wet and dry climate, influenced by its elevation (560m above sea level) and proximity to the Western Ghats. </p>
     </div>
   
 </div>
