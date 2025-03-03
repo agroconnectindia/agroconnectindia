@@ -1,5 +1,5 @@
 // import React from 'react'
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 
 
 import logo from './icon/logot.png'
@@ -24,6 +24,24 @@ export default function Recommendation() {
     let TotalFeedIntake = 1260 ;
     let CostPerEgg = 23;
     let GramsPerEgg = 50;
+
+
+    const dataArray = [
+      { text: "Amsac is a insecticide effective as a foliage spray for the control of insect pests ", image: "https://www.atul.co.in/wp-content/uploads/2024/02/Amsac.jpg" },
+      { text: "Balio is an organophosphorus and synthetic pyrethroid group insecticide.", image: "https://www.atul.co.in/wp-content/uploads/2024/02/Balio.jpg" },
+      { text: "It acts on the nervous system by interacting with the sodium channel.", image: "https://www.atul.co.in/wp-content/uploads/2022/04/Galastar.jpg" },
+     
+    ];
+  
+    const [index, setIndex] = useState(0);
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % dataArray.length);
+      }, 10000); // Change every 10 seconds
+  
+      return () => clearInterval(interval); // Cleanup on unmount
+    }, []);
     
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -90,7 +108,7 @@ return (
         <div className='min-h-[100px] sm:col-span-2    rounded-2xl backdrop-blur-2xl   shadow-2xl hidden md:block  '> <img className='h-40' src={logo} alt="" /> </div>
         <div onClick={handleDivClick} className='min-h-[100px]  sm:col-span-5   rounded-2xl backdrop-blur-2xl  shadow-2xl cursor-pointer flex   '>
             <div className='p-2 ' >
-            <p className='md:text-2xl flex ml-4  text-sm pt-2 font-bold italic'>Soil Information</p>
+            <p className='md:text-2xl flex ml-4  text-sm pt-2 font-bold italic'> Soil Information</p>
             <p className='flex mx-16 mt-4 font-bold text-3xl'>{soilinfo} %</p>
             <div className='ml-4 mt-3 font-semibold text-\\2xl italic '>Good For            </div>
             </div>
@@ -275,14 +293,14 @@ return (
             <p className='md:text-5xl pt-2 font-bold italic flex ml-10 '>15</p>
             <p className='md:text-xl pt-2 font-bold italic flex ml-10 '>Days</p>
             </div>
-            <div className=''>
+            <div className='p-2'>
               <div className='flex'><p className='md:text-xl pt-2 font-bold italic flex ml-10' >Pesticide Recommendation</p></div>
               <div className='flex justify-start ml-10 mt-2'>
-                <div><img className='h-[100px]  mr-5' src={pes} alt="" /></div>
+                <div><img className='  mr-5' src={dataArray[index].image} alt="" /></div>
                 <div className=''>
                   <p className='font-bold italic flex justify-center'>Insecticides</p>
                   <div className='flex'>
-                  <p className='flex p-2 '>chemicals used to kill insects.  Help <br /> to protect crops from  pests but  <br />   harm beneficial insects.</p>
+                  <p className='flex p-2 '>{dataArray[index].text}</p>
                 
                   </div>
                   </div>

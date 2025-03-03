@@ -15,7 +15,7 @@ import ai from './icon/ai.svg';
 import { logoutUser } from "./authentication/authService";
 import { useNavigate } from "react-router-dom";
 
-let name = 'Saurav Zure';
+let name = 'Farmer';
 export default function Side() {
   const [isOpen, setIsOpen] = useState(false);
   const gender = "male";
@@ -63,13 +63,14 @@ export default function Side() {
         </div>
 
         <nav className="mt-10 space-y-2 text-black">
-          <Link to={'/dashboard'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600'><img className='h-8 mr-2' src={dashboard} alt="" /> Dashboard</Link>
-          <Link to={'/recomendations'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-lg hover:text-gray-600 '><img className='h-8 mr-2' src={recommendation} alt="" /> Recommendations</Link>
-          <Link to={'/News'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 '><img className='h-8 mr-2' src={newsicon} alt="" /> Latest News</Link>
-          <Link to={'/Report'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600'><img className='h-8 mr-2' src={stat} alt="" /> Report</Link>
-          <Link to={'/Marketplace'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600'><img className='h-8 mr-2' src={market} alt="" /> Marketplace</Link>
-          <Link to={'/Search'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600'><img className='h-8 mr-2' src={ai} alt="" /> ChatBot</Link>
-          <Link to={'/About'} className='flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600'><img className='h-8 mr-2' src={about} alt="" /> About</Link>
+          <Link to={'/dashboard'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 transition ${location.pathname === "/dashboard" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={dashboard} alt="" /> Dashboard</Link>
+          <Link to={'/recomendations'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-lg hover:text-gray-600 transition ${location.pathname === "/recomendations" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={recommendation} alt="" /> Recommendations</Link>
+          <Link to={'/News'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 transition ${location.pathname === "/News" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={newsicon} alt="" /> Latest News</Link>
+          <Link to={'/Report'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 transition ${location.pathname === "/Report" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={stat} alt="" /> Report</Link>
+          <Link to={'/Marketplace'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 transition ${location.pathname === "/Marketplace" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={market} alt="" /> Marketplace</Link>
+          <Link to={'/Search'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 transition ${location.pathname === "/Search" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={ai} alt="" /> ChatBot</Link>
+          <Link to={'/About'} className={`flex items-center px-4 py-2 hover:bg-gray-300 rounded text-black font-bold text-xl hover:text-gray-600 transition ${location.pathname === "/About" ? "bg-gray-300" : "bg-transparent"}`}><img className='h-8 mr-2' src={about} alt="" /> About</Link>
+          
           
         </nav>
         <div className='absolute bottom-0 w-full my-5'>  

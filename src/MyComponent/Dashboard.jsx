@@ -292,12 +292,12 @@ return (
 
             <div className="flex items-center">
               <label className="w-24 font-semibold">Rate:</label>
-              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
+              <input type="number" min="0" className="border p-2 rounded-md w-full bg-gray-200" />
             </div>
 
             <div className="flex items-center">
               <label className="w-24 font-semibold">Amount:</label>
-              <input type="number" className="border p-2 rounded-md w-full bg-gray-200" />
+              <input type="number" min="0" className="border p-2 rounded-md w-full bg-gray-200" />
             </div>
 
             <button className="w-full bg-gray-300 text-black font-semibold py-2 rounded-md shadow">
@@ -477,11 +477,6 @@ return (
   <div className=''>
   <Footer  />
   </div>
-    
-
-    
-
-
     </div>
 
     
