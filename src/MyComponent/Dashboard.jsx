@@ -327,7 +327,7 @@ return (
 
 {/* popover 4 */}
 <div style={{ backgroundImage: `url(${temp})` }}
- className={` bg-cover bg-center left-1 md:left-auto absolute md:h-[530px] md:w-[1090px] h-[600px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
+ className={` bg-cover bg-center left-1 md:left-auto  absolute md:h-[530px] md:w-[1090px] h-[600px] w-[400px] bg-white shadow-2xl rounded-2xl p-4 ${isOpen3 ? 'block' : 'hidden'} z-50  `}>
             <button onClick={handleClosee3} className="absolute  text-white top-2 right-2 ">
     X
   </button>
