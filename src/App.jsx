@@ -16,7 +16,7 @@ import Loginpage from './MyComponent/Loginpage';
 import Registrationform from './MyComponent/registrationform'
 import ProtectedRoute from './MyComponent/authentication/PrivateRoute'
 import PrivateRoute from './MyComponent/authentication/PrivateRoute';
-
+import Pagenotfound from './MyComponent/pagenotfound';
 
 
 export default function Home() {
@@ -26,12 +26,12 @@ export default function Home() {
       useEffect(() => {
           setTimeout(() => {
               setLoading(false);
-          }, 3000); // Simulating a 2-second loading time
+          },3500); // Simulating a 2-second loading time
       }, []);
   return (
     
     // Offlinepage
-    <>
+    <Offlinepage>
       {loading ? (
                 <div className="flex justify-center items-center h-screen w-screen bg-white px-4">
                 <svg className="w-full max-w-lg" viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg">
@@ -63,6 +63,8 @@ export default function Home() {
     <Routes>
       <Route path='/' element={<Loginpage/>} />
       <Route path='/register' element={<Registrationform/>} />
+      <Route path='*' element={<Pagenotfound/>}/>
+      
       
       <Route element={<ProtectedRoute />}>
       <Route path='/dashboard' element={<Dashboard/>} />
@@ -81,7 +83,7 @@ export default function Home() {
             )}
             
 
-    </>
+    </Offlinepage>
 
     
     
