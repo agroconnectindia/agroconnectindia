@@ -101,6 +101,11 @@ const handleDivvClick1 = () => {
   const [humidity, setHumidity] = useState(null);
   const [feels_like, setFeels_like] = useState(null);
   const [wind_speed, setWind_speed] = useState(null);
+  const [this_week, setThis_week] = useState(null)
+  const [totalEgg, setTotalEgg] = useState(null)
+  const [totalMilk, setTotalMilk] = useState(null)
+  const [milkAmount, setMilkAmount] = useState(null)
+
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/weather")
@@ -111,6 +116,27 @@ const handleDivvClick1 = () => {
         setHumidity(data.humidity);
         setFeels_like(data.feels_like);
         setWind_speed(data.wind_speed);
+        setLoading(false);
+      })
+      .catch((error) => console.error("Error fetching weather data:", error));
+
+
+      fetch("http://127.0.0.1:5000/TotalEggsPerWeek")
+      .then((response) => response.json())
+      .then((data) => {
+        //working on 2 feb data stored in react hook and stored in temperature
+        setThis_week(data.total_amount_this_week)
+        setTotalEgg(data.total_eggs_this_week)
+        setLoading(false);
+      })
+      .catch((error) => console.error("Error fetching weather data:", error));
+
+      fetch("http://127.0.0.1:5000/TotalMilkPerWeek")
+      .then((response) => response.json())
+      .then((data) => {
+        //working on 2 feb data stored in react hook and stored in temperature
+        setTotalMilk(data.total_milk_this_week)
+        setMilkAmount(data.total_amount_this_week)
         setLoading(false);
       })
       .catch((error) => console.error("Error fetching weather data:", error));
@@ -160,7 +186,7 @@ return (
                 <p className='pt-4 '>Exeniture</p>
             </div>
             <div className='flex justify-center  gap-3 font-sans md:gap-28 text-lg'>
-                <p className='pt-1 pb-2 '>Rs.{NetProfit}</p>
+                <p className='pt-1 pb-2 '>Rs.{this_week}</p>
                 <p className='pt-1 pb-2 md:ml-0 ml-4'>Rs.{Exeniture}</p>
                 
             </div>
@@ -196,14 +222,14 @@ return (
           <div className='mr-2'>
           <div className=" text-xl font-bold">Total Eggs</div>
           <div className="text-xl font-semibold py-2 px-4 rounded-md">
-            250 
+            {totalEgg} 
           </div>
           </div>
 
           <div>
           <div className=" text-xl font-bold">Total Amount</div>
           <div className="text-2xl font-semibold py-2 px-4 rounded-md">
-            1500.87
+          {this_week}
           </div>
           </div>
           </div>
@@ -271,14 +297,14 @@ return (
           <div className='mr-2'>
           <div className=" text-xl font-bold">Total Milk</div>
           <div className="text-2xl font-semibold py-2 px-4 rounded-md">
-            250 L
+            {totalMilk}
           </div>
           </div>
 
           <div>
           <div className=" text-xl font-bold">Total Amount</div>
           <div className="text-2xl font-semibold py-2 px-4 rounded-md">
-            25000.87
+          {milkAmount}
           </div>
           </div>
           </div>
@@ -388,6 +414,7 @@ return (
         <h2 className="text-3xl  mb-4 font-bold text-gray-800">
           Pune <span className="text-gray-600">{temperature} °C</span>
         </h2>
+       
       </div>
             </div>
         </div>
@@ -434,14 +461,14 @@ return (
           <div className='mr-2 '>
           <div className="md:text-xl font-bold">Total Eggs (Week)</div>
           <div className="md:text-xl   py-2 px-4 rounded-md">
-            250 
+          {totalEgg}
           </div>
           </div>
 
           <div>
           <div className="md:text-xl font-bold">Total Amount (Week)</div>
           <div className="md:text-2xl  py-2 px-4 rounded-md">
-            1500
+          {this_week}
           </div>
           </div>
           </div>
@@ -465,14 +492,14 @@ return (
           <div className='mr-2 '>
           <div className="md:text-xl font-bold">Total Milk (Week)</div>
           <div className="md:text-xl   py-2 px-4 rounded-md">
-            250L
+            {totalMilk}
           </div>
           </div>
 
           <div>
           <div className="md:text-xl font-bold">Total Amount (Week)</div>
           <div className="md:text-2xl  py-2 px-4 rounded-md">
-            15000
+            {milkAmount}
           </div>
           </div>
           </div>

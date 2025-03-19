@@ -1,0 +1,27 @@
+
+         <!DOCTYPE html>
+         <html lang="en">
+         <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>Crop Information</title>
+             <script src="https://cdn.tailwindcss.com"></script>
+         </head>
+         <body class="bg-green-100 flex items-center justify-center h-screen">
+             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+                 <h1 class="text-2xl font-bold text-center mb-4">🌾 Crop Information</h1>
+         
+                 {% if crop %}
+                 <div class="p-4 bg-gray-50 rounded">
+                     <h2 class="text-xl font-bold text-center">{{ crop['Name'] }}</h2>
+                     <p>💧 Water: {{ crop['Water'] }} liters</p>
+                     <p>☀️ Sunlight: {{ crop['Sunlight'] }} hours</p>
+                 </div>
+                 {% else %}
+                 <p class="text-center text-red-500">No information available for this crop.</p>
+                 {% endif %}
+             </div>
+         </body>
+         </html>
+         
+         
