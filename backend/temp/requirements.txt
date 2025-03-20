@@ -1,4 +1,9 @@
-Flask==2.1.2
-mysql-connector-python==8.0.28
-Flask-CORS
+Flask
+flask-cors
+pprintpp
+gunicorn
+flask-sqlalchemy
+mysql-connector-python
 requests
+python-dotenv
+flask-migrate
