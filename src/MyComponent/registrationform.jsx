@@ -52,7 +52,7 @@ function RegistrationForm() {
           </div>
 
             <h2 className="text-xl font-semibold text-center mb-4">R E G I S T E R</h2>
-            <form className="space-y-4">
+            <form className="space-y-4" method = "POST" action='http://127.0.0.1:5000/register'>
               <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                 <label className="block">Name
                   <input
@@ -68,7 +68,7 @@ function RegistrationForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="block">Email
-                  <input
+                  <inputx
                     type="email"
                     placeholder="Email"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
@@ -183,6 +183,7 @@ function RegistrationForm() {
                 <label className="block">Soil Type
                   <select
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm"
+                    placeholder="SoilType"
                   >
                     <option value="">Select Soil Type</option>
                     <option value="Sandy">Sandy</option>
