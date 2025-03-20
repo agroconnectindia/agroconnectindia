@@ -57,8 +57,3 @@ jobs:
       - name: 🧪 Test API (Backend)
         run: |
           curl -X GET http://127.0.0.1:5000/  # Change endpoint if needed
-
-      #- name: 🧪 Test Frontend (Optional)
-      # run: |
-      #   cd agroconnectindia
-      #   npm test  # If you have frontend tests
