@@ -7,21 +7,22 @@ import Footer from './Footer'
 
 function Data() {
 const data = [
-{ id: 'a', imageSrc: {gra}, title: 'Item 1', info:  'Information about Item A' },
-{ id: 'b', imageSrc: {gra}, title: 'Item 2', info: 'Information about Item B' },
-{ id: 'c', imageSrc: {gra}, title: 'Item 3', info: 'Information about Item C' },
-{ id: 'd', imageSrc: {gra}, title: 'Item 4', info: 'Information about Item D' },
-{ id: 'f', imageSrc: {gra}, title: 'Item 5', info: 'Information about Item F' },
-{ id: 'a', imageSrc: {gra}, title: 'Item 6', info: 'Information about Item A' },
-{ id: 'b', imageSrc: {gra}, title: 'Item 7', info: 'Information about Item B' },
-{ id: 'c', imageSrc: {gra}, title: 'Item 8', info: 'Information about Item C' },
-{ id: 'd', imageSrc: {gra}, title: 'Item 9', info: 'Information about Item D' },
-{ id: 'f', imageSrc: {gra}, title: 'Item 10', info: 'Information about Item F' },
-{ id: 'a', imageSrc: {gra}, title: 'Item 11', info: 'Information about Item A' },
-{ id: 'b', imageSrc: {gra}, title: 'Item B', info: 'Information about Item B' },
-{ id: 'c', imageSrc: {gra}, title: 'Item C', info: 'Information about Item C' },
-{ id: 'd', imageSrc: {gra}, title: 'Item D', info: 'Information about Item D' },
-{ id: 'f', imageSrc: {gra}, title: 'Item F', info: 'Information about Item F' },
+  { id: 'a', imageSrc: {gra}, title: 'PM-KISAN', info: 'A government scheme providing financial support to Indian farmers.' },
+  { id: 'b', imageSrc: {gra}, title: 'Organic Farming', info: 'India is rapidly adopting organic farming to reduce chemical use in agriculture.' },
+  { id: 'c', imageSrc: {gra}, title: 'Subsidies & Policies', info: 'The Indian government offers subsidies on fertilizers, seeds, and irrigation for farmers.' },
+  { id: 'd', imageSrc: {gra}, title: 'Agri Markets', info: 'APMCs regulate market prices and ensure fair trade for Indian farmers.' },
+  { id: 'f', imageSrc: {gra}, title: 'Monsoon Impact', info: 'The Indian agriculture sector is highly dependent on monsoons for irrigation.' },
+  { id: 'a', imageSrc: {gra}, title: 'E-NAM', info: 'An online trading platform connecting farmers with national markets for better pricing.' },
+  { id: 'b', imageSrc: {gra}, title: 'Crop Insurance', info: 'Pradhan Mantri Fasal Bima Yojana (PMFBY) provides financial protection against crop loss.' },
+  { id: 'c', imageSrc: {gra}, title: 'Irrigation Techniques', info: 'Drip and sprinkler irrigation systems are helping Indian farmers save water.' },
+  { id: 'd', imageSrc: {gra}, title: 'Agri Exports', info: 'India is a major exporter of rice, spices, and wheat to global markets.' },
+  { id: 'f', imageSrc: {gra}, title: 'Climate Change', info: 'Rising temperatures and unpredictable rainfall affect Indian agriculture significantly.' },
+  { id: 'a', imageSrc: {gra}, title: 'Smart Farming', info: 'AI and IoT are transforming Indian agriculture with precision farming techniques.' },
+  { id: 'b', imageSrc: {gra}, title: 'Soil Health', info: 'Government soil health cards help farmers analyze nutrient levels in their fields.' },
+  { id: 'c', imageSrc: {gra}, title: 'Horticulture Growth', info: 'India is the second-largest producer of fruits and vegetables globally.' },
+  { id: 'd', imageSrc: {gra}, title: 'Agro Startups', info: 'Many agritech startups in India are helping farmers with technology and data-driven solutions.' },
+  { id: 'f', imageSrc: {gra}, title: 'Weather Forecasts', info: 'AI-driven weather predictions help farmers plan their sowing and harvesting better.' }
+
 // ... more items (if needed)
 ];
 
@@ -80,7 +81,7 @@ return (
 {filteredData.map((item, index) => (
  <div className='bg-white m-4 shadow-xl rounded-2xl' key={index}>
    
-   <h3 className='flex pt-3 px-2 font-bold text-xl'>{item.title}</h3>
+   <h3 className='flex pt-3 px-2 font-bold text-lg'>{item.title}</h3>
    <p  className='flex pb-3 px-2'>{item.info}</p>
  </div>
  

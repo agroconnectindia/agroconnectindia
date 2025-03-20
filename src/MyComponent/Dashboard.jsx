@@ -1,5 +1,6 @@
 // import React from 'react'
 import React, { useEffect,useState } from 'react';
+import { Link } from 'react-router-dom';
 import data from './Variable'; 
 import logo from './icon/logot.png'
 import cow from './icon/cow.png'
@@ -14,6 +15,7 @@ import { gsap } from "gsap";
 import {useRef} from 'react'
 import { useGSAP } from '@gsap/react';
 import temp from './icon/temp.jpg'
+import aipic from './icon/ai-farm.webp'
 
 
 
@@ -90,6 +92,7 @@ const handleDivvClick1 = () => {
   const [totalEgg, setTotalEgg] = useState(null)
   const [totalMilk, setTotalMilk] = useState(null)
   const [milkAmount, setMilkAmount] = useState(null)
+  const [index, setIndex] = useState(0);
 
 
   useEffect(() => {
@@ -125,7 +128,26 @@ const handleDivvClick1 = () => {
         setLoading(false);
       })
       .catch((error) => console.error("Error fetching weather data:", error));
+
+
+      
+      const interval = setInterval(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % dataArray.length);
+      }, 10000);
+
+      return () => clearInterval(interval); 
   }, []);
+
+  const dataArray = [
+    { name: "Wheat", text: "Wheat is a staple cereal crop, rich in carbohydrates and essential nutrients. It is widely used to make flour for bread, pasta, and various bakery products, serving as a primary food source worldwide.", image: "https://5.imimg.com/data5/GR/FY/MY-57993639/wheat-grains-1000x1000.jpg", data: "8" },
+    { name: "Rice", text: "Rice is a widely consumed grain, serving as a primary food source worldwide. It is available in various varieties such as basmati, jasmine, and long-grain, and is a crucial component of many traditional dishes.", image: "https://5.imimg.com/data5/SELLER/Default/2023/7/322826204/BZ/MP/GJ/13537206/sona-masoori-raw-rice.jpg", data: "9" },
+    { name: "Maize", text: "Maize is a versatile crop used for food, fodder, and industrial applications. It is processed into products such as cornmeal, popcorn, and corn syrup, and is also used as animal feed in the agricultural sector.", image: "https://5.imimg.com/data5/TN/ZN/JU/SELLER-75626100/65-kg-yellow-raw-maize-500x500.jpg", data: "10" },
+    { name: "Soybean", text: "Soybean is a protein-rich legume widely used in food and oil production. It is a key ingredient in products like soy milk, tofu, and soybean oil, and is also used as animal feed due to its high protein content.", image: "https://img1.exportersindia.com/product_images/bc-small/2018/12/5680212/soy_beans_1024x1024--1546147199.jpg", data: "11" },
+    { name: "Cotton", text: "Cotton is a fiber crop essential for textile production worldwide. The plant produces soft, fluffy fibers that are spun into thread or yarn for making fabric, while its seeds are used for oil extraction and cattle feed.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCPhvBjiwXqx0XPxt0zKDCWTc6qOkv8NzhCQ&s", data: "12" },
+    { name: "Groundnut", text: "Groundnut, also known as peanut, is an oilseed crop rich in protein. It is consumed as a snack, processed into peanut butter, and widely used for oil extraction, making it a valuable source of healthy fats and energy.", image: "https://m.media-amazon.com/images/I/51fS3LAFmwS.jpg", data: "13" },
+    { name: "Mustard", text: "Mustard seeds are used for oil extraction and as a spice in cooking. They come in different varieties, including yellow, brown, and black, and are commonly used in condiments, pickling, and traditional medicinal remedies.", image: "https://tiimg.tistatic.com/fp/1/008/237/machine-cleaned-whole-dried-brown-mustard-seeds-sarson-for-cooking-405.jpg", data: "14" },
+    { name: "Sunflower", text: "Sunflower seeds are a source of edible oil and protein-rich animal feed. They are consumed as a healthy snack, used in bakery products, and processed into sunflower oil, which is valued for its nutritional benefits.", image: "https://freshmills.in/cdn/shop/files/sunflower-seeds-442740.jpg?crop=center&height=1200&v=1717362348&width=1200", data: "15" },
+];
 
 // 
 
@@ -171,7 +193,7 @@ return (
                 <p className='pt-4 '>Exeniture</p>
             </div>
             <div className='flex justify-center  gap-3 font-sans md:gap-28 text-lg'>
-                <p className='pt-1 pb-2 '>Rs.{this_week}</p>
+                <p className='pt-1 pb-2 '>Rs.70000</p>
                 <p className='pt-1 pb-2 md:ml-0 ml-4'>Rs.{Exeniture}</p>
                 
             </div>
@@ -397,7 +419,7 @@ return (
 
         <div onClick={handleDivvClick3} className='min-h-[100px] sm:col-span-4 cursor-pointer   rounded-2xl backdrop-blur-2xl  shadow-2xl '>
         <div>
-            <h1 className='rtext-2xl text-center  pt-2 font-bold italic'>Weather info</h1>
+            <h1 className='text-2xl text-center  pt-2 font-bold italic'>Weather info</h1>
             <div className="flex flex-col items-center">
         <div className="text-6xl mb-2">🌤️</div>
         <h2 className="text-3xl  mb-4 font-bold text-black`">
@@ -410,14 +432,21 @@ return (
     </div>
     {/* 2nd row */}
     <div className='m-4 grid grid-cols-1 gap-4 sm:grid-cols-12  md:ml-36 '>
-        <div className='min-h-[100px] w-auto rounded-2xl shadow-2xl   backdrop-blur-2xl sm:col-span-6 '>
+        <div className='min-h-[100px] w-auto rounded-2xl shadow-2xl p-3   backdrop-blur-2xl sm:col-span-6 '>
         <div>
-            <p className='md:text-sm pt-2 font-bold italic flex ml-3'>Farm Weekly Record</p>
+            <p className='md:text-2xl pt-2 font-bold  flex ml-3'>AI Chatbot</p>
             </div>
-            <div className='content '>
-              <p className='md:p-5 p-3'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente esse alias, autem debitis ex corporis, maiores deleniti eveniet voluptates odio ratione optio qui odit a expedita dolorum officia architecto.
-              </p>
+            <div className='content px-4 '>
+              <p>Solve your problem with the help of AI</p>
+              <div className='grid grid-cols-2 p-0.5'>
+              <li>Disease Detection </li>
+              <li>Smart Irrigation</li>
+              <li>Price Prediction</li>
+              <li>Query with Crops</li>
+              </div>
+              <div className=' flex justify-end pt-1'>
+                <Link to={'/Search'}><p className='font-bold'>Try it out</p></Link>
+              </div>
             </div>
         </div>
         <div className='min-h-[100px] w-auto rounded-2xl shadow-2xl   backdrop-blur-2xl sm:col-span-6'>
@@ -425,10 +454,14 @@ return (
             <p className='md:text-sm pt-2 font-bold italic flex ml-3'>Seed Information</p>
             </div>
             <div className='flex justify-center items-center w-full'>
-            <img className='h-36 p-2 pt-3 flex justify-center' src={product} alt="" />
-            <p className='md:p-5 p-3'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente esse alias, autem debitis ex corporis, maiores deleniti eveniet voluptates odio ratione optio qui odit a expedita dolorum officia architecto.
+            <img className='h-36 p-4 pt-3 flex justify-center rounded-3xl' src={dataArray[index].image} alt="" />
+            <div className='pb-2'>
+            <p className='md:p- px-3 font-bold'>{dataArray[index].name}</p>
+            <p className='md:p- px-3'>
+              
+            {dataArray[index].text}
               </p>
+            </div>
             </div>
         </div>
         
