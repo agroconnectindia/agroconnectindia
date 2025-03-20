@@ -93,7 +93,7 @@ const handleDivvClick1 = () => {
 
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/weather")
+    fetch("https://agroconnectindia.onrender.com/weather")
       .then((response) => response.json())
       .then((data) => {
         //working on 2 feb data stored in react hook and stored in temperature
