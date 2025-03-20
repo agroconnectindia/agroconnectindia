@@ -74,7 +74,7 @@ export default function Home() {
       <Route path='/Marketplace' element={<Marketplace/>} />
       <Route path='/About' element={<About/>} />
       <Route path='/Profile' element={<Profile/>} /> 
-      <Route path='/Search' element={<Search/>} />
+      <Route path='/Search' element={<Search/>} />   
       </Route>
       
       

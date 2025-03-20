@@ -397,11 +397,11 @@ return (
 
         <div onClick={handleDivvClick3} className='min-h-[100px] sm:col-span-4 cursor-pointer   rounded-2xl backdrop-blur-2xl  shadow-2xl '>
         <div>
-            <h1 className='text-2xl text-center  pt-2 font-bold italic'>Weather info</h1>
+            <h1 className='rtext-2xl text-center  pt-2 font-bold italic'>Weather info</h1>
             <div className="flex flex-col items-center">
         <div className="text-6xl mb-2">🌤️</div>
-        <h2 className="text-3xl  mb-4 font-bold text-gray-800">
-          Pune <span className="text-gray-600">{temperature} °C</span>
+        <h2 className="text-3xl  mb-4 font-bold text-black`">
+          Pune <span className="text-black">{temperature} °C</span>
         </h2>
        
       </div>
