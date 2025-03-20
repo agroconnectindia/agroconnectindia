@@ -1,5 +1,5 @@
 city = "Pune"
-weather_api = "AJXv10q0BwzUyyspBTqDsb7h6CK8GBUG"
+weather_api = "plrrhvuFQIYcvZ4c7lprYWR3VswueAbA"
 api_url = "http://dataservice.accuweather.com"
 
 
