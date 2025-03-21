@@ -88,6 +88,9 @@ return (
  
 ))}
 </div>
+<div className='flex justify-end mr-10  '>
+<a href="https://marathi.abplive.com/topic/agriculture-news"><p className='text-black font-bold'>Read More</p></a>
+</div>
 <div className='mt-5'>
 <Footer/>
 </div>

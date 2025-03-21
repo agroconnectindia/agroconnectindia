@@ -8,6 +8,19 @@ function RegistrationForm() {
 
   const [email1, setEmail1] = useState("");
   const [password1, setPassword1] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [gender, setGender] = useState("");
+  const [soilType, setSoilType] = useState("");
+  const [currentCrop, setCurrentCrop] = useState("");
+  const [harvestTime, setHarvestTime] = useState("");
+  const [fertilizerFrequency, setFertilizerFrequency] = useState("");
+  const [ureaFrequency, setUreaFrequency] = useState("");
+  const [haveDairy, setHaveDairy] = useState(false);
+  const [havePoultry, setHavePoultry] = useState(false);
   const navigate1 = useNavigate();
 
   const handleRegister = async () => {
@@ -57,6 +70,8 @@ function RegistrationForm() {
                 <label className="block">Name
                   <input
                     type="text"
+                    value={name} 
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="Name"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
                     required
@@ -68,7 +83,7 @@ function RegistrationForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="block">Email
-                  <inputx
+                  <input
                     type="email"
                     placeholder="Email"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
@@ -92,6 +107,7 @@ function RegistrationForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <label className="block">City
                   <select
+                  value={city} onChange={(e) => setCity(e.target.value)}
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm"
                     required
                   >
@@ -152,6 +168,7 @@ function RegistrationForm() {
                 </label>
                 <label className="block">State
                   <select
+                  value={state} onChange={(e) => setState(e.target.value)}
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm"
                     required
                   >
@@ -171,10 +188,10 @@ function RegistrationForm() {
   <p>Gender</p>
   <div className='flex mt-2'>
   <label className="flex items-center gap-2 w-full md:w-auto mr-10">
-    <input type="radio" name="gender" className="w-4 h-4" value="male" /> Male
+    <input value="male" checked={gender === "male"} onChange={(e) => setGender(e.target.value)} type="radio" name="gender" className="w-4 h-4"  /> Male
   </label>
   <label className="flex items-center gap-2 w-full md:w-auto">
-    <input type="radio" name="gender" className="w-4 h-4" value="female" /> Female
+    <input value="female" checked={gender === "female"} onChange={(e) => setGender(e.target.value)} type="radio" name="gender" className="w-4 h-4"  /> Female
   </label>
   </div>
 </div>
@@ -182,6 +199,7 @@ function RegistrationForm() {
               </div>
                 <label className="block">Soil Type
                   <select
+                  value={soilType} onChange={(e) => setSoilType(e.target.value)}
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm"
                     placeholder="SoilType"
                   >
@@ -204,6 +222,8 @@ function RegistrationForm() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <label className="block">Current Crop
                   <input
+                  value={currentCrop} 
+                  onChange={(e) => setCurrentCrop(e.target.value)}
                     type="text"
                     placeholder="Current Crop"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
@@ -211,6 +231,8 @@ function RegistrationForm() {
                 </label>
                 <label className="block">Harvest Time
                   <input
+                  value={harvestTime} 
+                  onChange={(e) => setHarvestTime(e.target.value)}
                     type="text"
                     placeholder="Harvest Time"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
@@ -218,6 +240,8 @@ function RegistrationForm() {
                 </label>
                 <label className="block">Fertilizer Frequency
                   <input
+                  value={fertilizerFrequency} 
+                  onChange={(e) => setFertilizerFrequency(e.target.value)}
                     type="text"
                     placeholder="Fertilizer Frequency"
                     className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
@@ -233,6 +257,7 @@ function RegistrationForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 <label className="block">Urea Frequency
                 <input
+                value={ureaFrequency} onChange={(e) => setUreaFrequency(e.target.value)}
                   type="text"
                   placeholder="Urea Frequency"
                   className="bg-white border border-gray-300 p-2 rounded-lg w-full text-sm placeholder:text-xs"
@@ -241,10 +266,10 @@ function RegistrationForm() {
 
               <div className="flex flex-col md:flex-row items-center gap-4 md:mt-6">
                 <label className="flex items-center gap-2 w-full md:w-auto">
-                  <input type="checkbox" className="w-4 h-4 " /> Have Dairy?
+                  <input type="checkbox" checked={haveDairy} onChange={() => setHaveDairy(!haveDairy)} className="w-4 h-4 " /> Have Dairy?
                 </label>
                 <label className="flex items-center gap-2 w-full md:w-auto">
-                  <input type="checkbox" className="w-4 h-4" /> Have Poultry?
+                  <input checked={havePoultry} onChange={() => setHavePoultry(!havePoultry)} type="checkbox" className="w-4 h-4" /> Have Poultry?
                 </label>
               </div>
               </div>
