@@ -1,39 +1,19 @@
 from flask import Flask, render_template
-# from registrationdata import showregdata
-# from registrationtest.zzregister import zregister
-from milk import milkshow
-from poultryfarm import poultryshow
-import sqlite3  
-
-dbname = 'agroconnect.db'
-
+from flask_cors import CORS
+from routes.weather_routes import weather_bp  # Import weather route
+from routes.milkproduction_routes import milkproduction_bp  # Import milkproduction route
+from routes.eggproduction_routes import eggproduction_bp  # Import eggproduction route
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS
 
-@app.route('/') 
-def home():
+@app.route('/')
+def backend_working():
     return render_template('index.html')
-@app.route('/poultryfarm')
-def poultryfarm():
-    return render_template('Poultryfarm.html')
-@app.route("/milk", methods=['GET', 'POST'])
-def milk():
-    return milkshow()
-@app.route('/poultry', methods=['GET', 'POST'])
-def poultry():
-    return poultryshow()
-@app.route('/login', methods=['GET', 'POST'])
-def regist():
-    return register()
 
-
-
-
-
-@app.route('/zzregistersuccess', methods=['POST'])
-def register():
-    return zregister()
-
+app.register_blueprint(weather_bp)  # Register weather route
+app.register_blueprint(milkproduction_bp)  # Register milkproduction route
+app.register_blueprint(eggproduction_bp)  # Register eggproduction route
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

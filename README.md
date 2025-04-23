@@ -8,3 +8,7 @@ This is AgroConnect India - Official AgroConnect Web App Developed by the Studen
 | :---: | :---: | :---: |
 | Prajwal Dhage | Overall Project | psdhage1@gmail.com |
 | Samarth Naikwade | Backend | samarthnaikwade@outlook.com |
+
+# Project Status
+
+> To Be Updated!
