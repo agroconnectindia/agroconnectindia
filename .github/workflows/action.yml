@@ -30,8 +30,8 @@ jobs:
 
       - name: 📦 Install Frontend Dependencies
         run: |
-          npm install
+          cd client && npm install
 
       - name: 🚀 Build Frontend
         run: |
-          npm run build  # Optional, if you need to build before serving
+          cd client && npm run build  # Optional, if you need to build before serving
