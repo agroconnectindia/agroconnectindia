@@ -35,3 +35,9 @@ jobs:
       - name: 🚀 Build Frontend
         run: |
           cd client && npm run build  # Optional, if you need to build before serving
+      # 📤 Deploy to GitHub Pages
+      - name: 🚀 Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: client/dist
