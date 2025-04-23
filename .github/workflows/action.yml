@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: 22  # Change version if needed
           cache: npm
+          cache-dependency-path: client/package-lock.json  # Point to correct location
 
       - name: 📦 Install Frontend Dependencies
         run: |
